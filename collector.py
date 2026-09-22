@@ -14,7 +14,7 @@ from concurrent.futures import ThreadPoolExecutor
 import requests
 
 BOOKS_URL = "https://clob.polymarket.com/books"
-INTERVAL = 5       # seconds between snapshots
+INTERVAL = 2       # seconds between snapshots
 CHUNK = 100        # tokens per request; lower it if the log shows missing books
 LEVELS = 10        # price levels kept on each side of each book
 DATA_DIR = "data"
