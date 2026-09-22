@@ -60,6 +60,8 @@ def main():
     tokens = load_tokens()
     hour = time.strftime("%Y%m%d%H", time.gmtime())
     snapshots_this_hour = 0
+    if snapshots_this_hour % 30 == 1:
+            print(time.strftime("%H:%M:%S"), "snapshot written for", len(tokens), "tokens", flush=True)
     pool = ThreadPoolExecutor(max_workers=8)
     next_tick = time.time()
     logging.info("started with %d tokens", len(tokens))

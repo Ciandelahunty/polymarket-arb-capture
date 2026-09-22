@@ -1,0 +1,3699 @@
+{
+  "built_at_utc": "2026-09-22T16:11:22Z",
+  "events": [
+    {
+      "slug": "balance-of-power-2026-midterms",
+      "title": "Balance of Power: 2026 Midterms",
+      "end_date": "2027-01-05T04:59:00Z",
+      "volume24hr": 348177.220826,
+      "liquidity": 1594662.55503,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "562828",
+          "label": "Democrats Sweep",
+          "yes_token": "34722410608062854697106861099776685947172185964394483545370684749662285977831",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "562829",
+          "label": "D Senate, R House",
+          "yes_token": "70997927349469817841862065582625658840347600365813612622959588796331622340305",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "562830",
+          "label": "R Senate, D House",
+          "yes_token": "6302359956133594764084277082169634158291609371270652093164054687145970756151",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "562831",
+          "label": "Republicans Sweep",
+          "yes_token": "103704141773947678931823410030956181918562062788486034785782641603149828893320",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "562832",
+          "label": "Other",
+          "yes_token": "35477631289241705233759154026285946627439635224019448868888132647783862821489",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "elon-musk-of-tweets-october-2026",
+      "title": "Elon Musk # tweets in October 2026?",
+      "end_date": "2026-11-01T04:00:00Z",
+      "volume24hr": 26299.759281,
+      "liquidity": 142716.48344,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "3829885",
+          "label": "<20",
+          "yes_token": "68297856918505838560196821720350417509174484060733695496137494785164346971475",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829892",
+          "label": "20-39",
+          "yes_token": "22212234504582158350821626951193140712963388988374227937984520678898504214541",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829898",
+          "label": "40-59",
+          "yes_token": "63946508164829902081513911586129830533966818724897195089935508763399592815157",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829903",
+          "label": "60-79",
+          "yes_token": "56056224091240506914425693952455918482133723007685284219330284643151675432715",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829908",
+          "label": "80-99",
+          "yes_token": "8596664932146895301246413648725935751340693992829187287132550792976530013932",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829912",
+          "label": "100-119",
+          "yes_token": "27565770140068083805403582734755314422310784210464261120286646427024570969805",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829916",
+          "label": "120-139",
+          "yes_token": "13735227545613885646369054758604971415442586537843783639574250322506522105791",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829919",
+          "label": "140-159",
+          "yes_token": "7225468360091723857760654250142870605504678717512774222403636837108473380415",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829922",
+          "label": "160-179",
+          "yes_token": "17573781237232575854407351177376352806264873544028140076000735022108595958910",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829925",
+          "label": "180-199",
+          "yes_token": "53657856267665271852892321220744292408371307884764829981190438584739017830845",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829928",
+          "label": "200-219",
+          "yes_token": "40958478154200395682200821691610055560045225604622960981016683152145030315346",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829930",
+          "label": "220-239",
+          "yes_token": "34250917855825267919608363885472425683235959500057830565176384777717545859205",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829932",
+          "label": "240-259",
+          "yes_token": "30027296242752151460148367452926694123307529353606512021643830630114708307936",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829935",
+          "label": "260-279",
+          "yes_token": "85854312996058661620294659012105509485907613438410497980357438590845474427407",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829940",
+          "label": "280-299",
+          "yes_token": "63268589310874183413450275149751970428887036799920012136953406534713587442747",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829944",
+          "label": "300-319",
+          "yes_token": "60129172183454980352481924433692857567895558789385138434949889904184549263268",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829946",
+          "label": "320-339",
+          "yes_token": "91060578531109416467119762801579699390398385851999842019821575083415712197032",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829947",
+          "label": "340-359",
+          "yes_token": "94660345056564279086895000926672750268697546923851894949708585283967774659284",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829948",
+          "label": "360-379",
+          "yes_token": "1027907226520204769437576589884069970414423216692992696343442980269064464592",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829949",
+          "label": "380-399",
+          "yes_token": "28823231175058225238810911993261875894831527685491841773612310335662808228194",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829951",
+          "label": "400-419",
+          "yes_token": "18451921126486454097199969484571064036501393578016041190323633333077657830547",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829954",
+          "label": "420-439",
+          "yes_token": "27083042983954723216616843694065145551448240484280001995880946559075512056393",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829959",
+          "label": "440-459",
+          "yes_token": "21154868573637570614194818071769887052702267929463281733604908807474368830614",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829963",
+          "label": "460-479",
+          "yes_token": "49954249756395846461990921768413114942361658421545361938027270411986714552723",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829967",
+          "label": "480-499",
+          "yes_token": "106329733237828681478754124009245278604928548966162516089004771643245937419364",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829970",
+          "label": "500-519",
+          "yes_token": "84200399710233210056003925303570377704469577261404018684249103954629893239878",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829973",
+          "label": "520-539",
+          "yes_token": "67403360104076709823985173850486244699558529370821849864831873416069389188442",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829976",
+          "label": "540-559",
+          "yes_token": "6760245027570078872597693201403724973618835001659413443991859890452307815545",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829979",
+          "label": "560-579",
+          "yes_token": "25482069703561640652572452652860137986839821179071773614490328627313695396270",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829982",
+          "label": "580-599",
+          "yes_token": "21857124383422083970052882553844499882168702827289232142272928257956291795659",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829985",
+          "label": "600-619",
+          "yes_token": "77313499291300756091872207239763137107320661338851742025685294299319626847405",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829989",
+          "label": "620-639",
+          "yes_token": "77131169595562963390244919525808962411079762654683364636056529549209394425816",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829992",
+          "label": "640-659",
+          "yes_token": "50749061362282252492039908950557046457405861887930285830874403361414689596876",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829995",
+          "label": "660-679",
+          "yes_token": "69984797564970409246829635858543655643978901859330366895058935083411698229666",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3829998",
+          "label": "680-699",
+          "yes_token": "104641311903886593335531205263710248394021821993774963711555237126156698385199",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830000",
+          "label": "700-719",
+          "yes_token": "45459517133430256991910555577422415287683193642703403489929763002397303232003",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830002",
+          "label": "720-739",
+          "yes_token": "11711069863887354782397770015978992676768958191350601002648742976178552713883",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830003",
+          "label": "740-759",
+          "yes_token": "90743219743834800379813955914235235559014927118909099884702621017836283469331",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830004",
+          "label": "760-779",
+          "yes_token": "70522129333771914716971021415816944008452851383457853404561826333424454843876",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830006",
+          "label": "780-799",
+          "yes_token": "12829709728230238700528700117642217373032329575415742104851564859612672923735",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830007",
+          "label": "800-839",
+          "yes_token": "71996178905016869477647076972552714344674111409609720299388980939312948412280",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830008",
+          "label": "840-879",
+          "yes_token": "11944441025464469378905022394768128905612040175931669473638027289495454591113",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830009",
+          "label": "880-919",
+          "yes_token": "15852792585514750786313308470400301759678488329235694296815036219507601598324",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830010",
+          "label": "920-959",
+          "yes_token": "112193536656532318891760252643150989825692030543719802598506242348038566896334",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830011",
+          "label": "960-999",
+          "yes_token": "57691110295647156954046400294198698790366963266588014684527687647520316730038",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3830012",
+          "label": "1000+",
+          "yes_token": "88747376625663385152674184248803368960926156046708532089125893719209139788173",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "culture_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "maduro-prison-time-527",
+      "title": "Maduro Prison Time?",
+      "end_date": "2028-01-01T04:59:00Z",
+      "volume24hr": 64908.470477,
+      "liquidity": 70990.51319,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "1098288",
+          "label": "No prison time",
+          "yes_token": "93162886704224000274015568397419611555175609473321892979018161300356238927833",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "feesEnabled": false,
+            "feeType": null
+          }
+        },
+        {
+          "market_id": "1098289",
+          "label": "<20",
+          "yes_token": "59384261526964250038574073876197739413338205041441126633976885115034334726761",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "feesEnabled": false,
+            "feeType": null
+          }
+        },
+        {
+          "market_id": "1098290",
+          "label": "20\u201340",
+          "yes_token": "108283860620623908425119670262246172133668802414636801348932715917595242685050",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "feesEnabled": false,
+            "feeType": null
+          }
+        },
+        {
+          "market_id": "1098291",
+          "label": "40\u201360",
+          "yes_token": "42171576084675472526683846881070958756041732401294541140904719706535468943157",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "feesEnabled": false,
+            "feeType": null
+          }
+        },
+        {
+          "market_id": "1098292",
+          "label": "60+",
+          "yes_token": "101856306106619561547484060337828195810676190048477336006217084007311032600729",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "feesEnabled": false,
+            "feeType": null
+          }
+        }
+      ]
+    },
+    {
+      "slug": "what-will-the-fed-rate-be-at-the-end-of-2026",
+      "title": "What will the Fed rate be at the end of 2026?",
+      "end_date": "2027-01-01T04:59:00Z",
+      "volume24hr": 223.48559,
+      "liquidity": 157082.67791,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "1168133",
+          "label": "2.25%",
+          "yes_token": "22041816684222995832827286579718756449177525604552575185729167841575371811511",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168134",
+          "label": "2.5%",
+          "yes_token": "74366238780126511156198005038700786940884582649388457649794697077780927240575",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168135",
+          "label": "2.75%",
+          "yes_token": "10021099765479877880206130084102113471770375449510519368096296649508325006675",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168136",
+          "label": "3.0%",
+          "yes_token": "22030816399818413560467152256926658656366292051273475071688151582132139764281",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168137",
+          "label": "3.25%",
+          "yes_token": "30366180262779010808139929063676071042343089991674577710986189846984779742371",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168138",
+          "label": "3.5%",
+          "yes_token": "76542734491881647384543632699602825265030157099252760960463268833056461102034",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168139",
+          "label": "3.75%",
+          "yes_token": "77981338513262421050195407227805423999001074679019211738787029756025412233520",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168140",
+          "label": "4.0%",
+          "yes_token": "45298643302120067019009097483686644753682404593036519073434032964867401216713",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168141",
+          "label": "4.25%",
+          "yes_token": "89500673908097597906591339142232589618046825453146074245854666302243957916021",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168142",
+          "label": "\u2265 4.5%",
+          "yes_token": "44956651579513700220045051729687627381715616102744183825397331989105273067709",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168832",
+          "label": "\u22641.0%",
+          "yes_token": "8428905054197455020031495106070658435380642200638989046327033285092773824082",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168833",
+          "label": "1.25",
+          "yes_token": "1157443684511006167585906406655380617190907150100754776816041475587243788670",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168834",
+          "label": "1.5%",
+          "yes_token": "24200688643010489802979414720922485726083898678543840432899131608248835588689",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168843",
+          "label": "1.75%",
+          "yes_token": "16142510462137475227869367321456992291659620114580902972224851745847257441642",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1168844",
+          "label": "2.0%",
+          "yes_token": "101115517952714930508586870711049128767846487814601539730559627760869397372071",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "republican-senate-seats-after-the-2026-midterm-elections-927",
+      "title": "Republican Senate seats after the 2026 midterm elections?",
+      "end_date": "2026-11-03T17:00:00Z",
+      "volume24hr": 17617.697722999997,
+      "liquidity": 347328.306,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "943819",
+          "label": "\u226447",
+          "yes_token": "89624669145341997724697326849445716755183665898947701894080018635919612252707",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943820",
+          "label": "48",
+          "yes_token": "72612350161635310858699746744664698071678470215569392949055290671799482750173",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943821",
+          "label": "49",
+          "yes_token": "62377650660175430184575321355603581384424839385693705300992070114964919683845",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943822",
+          "label": "50",
+          "yes_token": "23243487444956959885535301419786787791218675785513044513046312975446911578713",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943823",
+          "label": "51",
+          "yes_token": "105627504566569706748610029122703529394729331390957077331824112641486910010161",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943824",
+          "label": "52",
+          "yes_token": "71547572456937213989007089427188853117815317606685045433579261770964952182308",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943825",
+          "label": "53",
+          "yes_token": "15394416147421266264002744586901575755411758481406494583013250092373628427765",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943826",
+          "label": "54",
+          "yes_token": "13278443981418985302116823794751942747516190107446009911143426402863687470127",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943827",
+          "label": "55",
+          "yes_token": "10750997471908598562514411969554157596465059745769943341362824315243580377116",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943828",
+          "label": "56",
+          "yes_token": "9273056014077248525737106426866852410841224250259842453481519298611852217348",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "943829",
+          "label": "57+",
+          "yes_token": "106446804142822856909456712516050968287728263341329924913008459244064245181608",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "japan-core-cpi-yoy-in-2026-20260617224131789",
+      "title": "Japan Core CPI YoY in 2026",
+      "end_date": "2027-04-01T03:59:00Z",
+      "volume24hr": 2924.902608,
+      "liquidity": 4273.82721,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "2589858",
+          "label": "\u22641.9%",
+          "yes_token": "6907858705491368924365764924768070123109334511326757109740087779384395951898",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2589859",
+          "label": "2.0-2.4%",
+          "yes_token": "96529447124777715998870937708569914974748739211541050885412540018665741961803",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2589860",
+          "label": "2.5-2.9%",
+          "yes_token": "73379576103463713294976378804204737827073719627881917682827163910230163368715",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2589861",
+          "label": "3.0-3.4%",
+          "yes_token": "62902173558336060306352651085692944460302766362460679401606888220884534168374",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2589862",
+          "label": "3.5-3.9%",
+          "yes_token": "46296598752580170743007672912973282641016064377512464907702431406835877997093",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2589863",
+          "label": "4.0%+",
+          "yes_token": "71090300499759186768161490573147280850837935910976458421100823434775429925723",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bank-of-japan-decision-in-december-20260918",
+      "title": "Bank of Japan Decision in December?",
+      "end_date": "2026-12-18T00:00:00Z",
+      "volume24hr": 1038.556224,
+      "liquidity": 4331.50233,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "4713372",
+          "label": "50+ bps decrease",
+          "yes_token": "7129700785555443270822247285877570167604243415357044371672803504554170185257",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4713373",
+          "label": "25 bps decrease",
+          "yes_token": "101524958378119509180284878928041803021948982556098496243755328957591890779081",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4713374",
+          "label": "No change",
+          "yes_token": "105286380431256892313074185045117809016507922820541987784452285532521142109268",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4713375",
+          "label": "25 bps increase",
+          "yes_token": "51726640314083766394102290866150746626917638250274676398325637378264562512702",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4713376",
+          "label": "50+ bps increase",
+          "yes_token": "99203826087550735111666444757489598551700526119600287271813921008688676121750",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "canada-annual-inflation-2026",
+      "title": "Canada Annual Inflation 2026",
+      "end_date": "2027-01-19T04:59:00Z",
+      "volume24hr": 113,
+      "liquidity": 10605.9471,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "1082177",
+          "label": "<1.0%",
+          "yes_token": "31257204937237990467751124193937165588994407435836702498606483382304261744962",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1082178",
+          "label": "1.0\u20131.4%",
+          "yes_token": "67791298699048517760028878527858714994580564495268937772889200256855400088568",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1082179",
+          "label": "1.5\u20131.9%",
+          "yes_token": "65374253505651121923763194846201889808498251344458910043222348451869639241464",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1082180",
+          "label": "2.0\u20132.4%",
+          "yes_token": "18235424021187509751166100534830141576764837136321519399171002009668230346326",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1082181",
+          "label": "2.5\u20132.9%",
+          "yes_token": "42886740787070849677667435962046954744507546692160141925653974894735788658911",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1082182",
+          "label": "4.0%+",
+          "yes_token": "73551193560193534894600808769170100050078056991646420917804310023113474856243",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1236862",
+          "label": "3.0-3.4%",
+          "yes_token": "70947022834029907891985983421086617935623882414718990926364070609942565191239",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1236870",
+          "label": "3.5-3.9%",
+          "yes_token": "114717933804246055543643295237152736549748997887059435405580904226717354373479",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "how-many-senate-and-house-seats-will-republicans-have-after-the-midterms-20260625152833634",
+      "title": "How many Senate and House seats will Republicans have after the midterms?",
+      "end_date": "2027-01-05T04:59:00Z",
+      "volume24hr": 702.318902,
+      "liquidity": 153729.4436,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "2683257",
+          "label": "\u226553 and \u2265223",
+          "yes_token": "60749284479433899399555867835914571101997718699093268580565831717285637411932",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683258",
+          "label": "\u226553 and 208\u2013222",
+          "yes_token": "34040998418088587241612692084107046032119205906145822822933818487667554377424",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683259",
+          "label": "\u226553 and \u2264207",
+          "yes_token": "32096142546633541233527518527891314455215234223658051647621297733048655424464",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683260",
+          "label": "50\u201352 and \u2265223",
+          "yes_token": "94380408104105059584765806434317620159315446004176943469941193762796162797959",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683261",
+          "label": "50\u201352 and 208\u2013222",
+          "yes_token": "42374286311330478960125692386748125437821716505212543459307016778867911073746",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683262",
+          "label": "50\u201352 and 193\u2013207",
+          "yes_token": "81487381289373609070258649884724529193740784337911000624544031913493680205898",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683263",
+          "label": "50\u201352 and \u2264192",
+          "yes_token": "85748793000392559987900061969140737605886014359522686041587195277440186182848",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683264",
+          "label": "47\u201349 and \u2265208",
+          "yes_token": "25690797526043257673498070141206149629010637204937062451999171413145654482766",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683265",
+          "label": "47\u201349 and 193\u2013207",
+          "yes_token": "107075860405408536515766768531480503170636230080301658109472052152632888013900",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683266",
+          "label": "47\u201349 and \u2264192",
+          "yes_token": "97720695493383538800739610922384313124637306981430352024605630545380035239508",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683267",
+          "label": "\u226446 and \u2265208",
+          "yes_token": "3590799701255341098537028337135219831296180264532504275521484050711672542532",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683268",
+          "label": "\u226446 and 193\u2013207",
+          "yes_token": "55152826250326979645321624865760600268809878968961856032374756938265587479264",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2683269",
+          "label": "\u226446 and \u2264192",
+          "yes_token": "109407424326495328967551149983987832023911703098230660910793740224118365132080",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bank-of-korea-decision-in-november",
+      "title": "Bank of Korea decision in November?",
+      "end_date": "2026-11-26T00:00:00Z",
+      "volume24hr": 1446.327845,
+      "liquidity": 5368.06927,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "3940928",
+          "label": "50+ bps cut",
+          "yes_token": "67927678589297075996685077460044218999604821449565258297287893803976139668610",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3940929",
+          "label": "25 bps cut",
+          "yes_token": "82517333292798788651347407545823963300019043696224523278667234735673404005367",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3940930",
+          "label": "No Change",
+          "yes_token": "112183105545389906911239624068184676494543268527737269506203930802400659458568",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3940931",
+          "label": "25 bps hike",
+          "yes_token": "34183803759521638854989783568100642156381706019491238689667182981181837714629",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3940932",
+          "label": "50+ bps hike",
+          "yes_token": "68125017737913991530362062255794172220451975940702276426693373154316425392063",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "china-annual-inflation-2026",
+      "title": "China Annual Inflation 2026",
+      "end_date": "2027-01-11T04:59:00Z",
+      "volume24hr": 4021.45107,
+      "liquidity": 8580.29851,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "1132791",
+          "label": "<-1.0%",
+          "yes_token": "10051938461739824819998874043590565985037497666058946103952048294424924618780",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1132792",
+          "label": "-0.9 \u2013 -0.5%",
+          "yes_token": "6722603689945891004899753711563439393829998752192600069517894002568833974686",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1132793",
+          "label": "-0.4 \u2013 0.0%",
+          "yes_token": "8273735836947695961645846653245284535255573936419244573929514964051363259687",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1132794",
+          "label": "0.1 \u2013 0.5%",
+          "yes_token": "111793321531617118469731113323868515152966860664048041563681092315357712753992",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1132795",
+          "label": "0.6 \u2013 1.0%",
+          "yes_token": "49559148147591058604840389664734045472442253844719304143627020489005178083708",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1132796",
+          "label": "1.1 \u2013 1.5%",
+          "yes_token": "24068822425892014677273812195794927391380004762343953944052764606472380690421",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1132797",
+          "label": "1.6 \u2013 2.0%",
+          "yes_token": "104771319366981429485700415120577243295443903901814809581466165680400541206538",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1132798",
+          "label": "2.5%+",
+          "yes_token": "81988826341491243870198235322141312310928900677287781518910910931497765527450",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "1237148",
+          "label": "2.0-2.4%",
+          "yes_token": "87618105504174484119459242398815572527955843029402507833338758078221282778555",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "economics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.05,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "holborn-and-st-pancras-by-election-green-vote-share",
+      "title": "Holborn and St Pancras By-Election: Green Vote Share?",
+      "end_date": "2026-10-08T23:59:00Z",
+      "volume24hr": 569.03,
+      "liquidity": 35935.74789,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "4571621",
+          "label": "<20%",
+          "yes_token": "99328589825040189655857425353671547320206361126654183071928318833600283953276",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571622",
+          "label": "20-25%",
+          "yes_token": "97175478726902151512428265193954091089226964901250979770386186651986561065625",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571623",
+          "label": "25-30%",
+          "yes_token": "93551846362098523730159174573600078320383879760600452024317279524438603584538",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571624",
+          "label": "30-35%",
+          "yes_token": "70056870478538242575634862881678434921265436166309996159439408794638375240083",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571625",
+          "label": "35-40%",
+          "yes_token": "78520725365225652637938790495063016207345963922485761212950708533053816725635",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571626",
+          "label": "40%+",
+          "yes_token": "97221560639384013430870114097221575079420882624234347839888569407392586465075",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "holborn-and-st-pancras-by-election-labour-vote-share",
+      "title": "Holborn and St Pancras By-Election: Labour Vote Share?",
+      "end_date": "2026-10-08T23:59:00Z",
+      "volume24hr": 221.535863,
+      "liquidity": 27026.04468,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "4571615",
+          "label": "<30%",
+          "yes_token": "1370988305350986777159777253803809270143666857788211198156460623448909008330",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571616",
+          "label": "30-35%",
+          "yes_token": "104104201201768859854802068397649294931981422470551371814046485973736734895317",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571617",
+          "label": "35-40%",
+          "yes_token": "111185434124025455066355595808486118638061550884660590386653230638812817858445",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571618",
+          "label": "40-45%",
+          "yes_token": "88664153813436701078981184578811326277040568299667484542657255130999889113520",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571619",
+          "label": "45-50%",
+          "yes_token": "56854731672059058615093300003258441522654145388921953818189783956506793864876",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4571620",
+          "label": "50%+",
+          "yes_token": "84093676033875539309549270489890688041038359919268553358676535498252723784988",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "how-many-house-seats-will-the-democrats-win-in-minnesota",
+      "title": "How many House seats will the Democrats win in Minnesota?",
+      "end_date": "2027-01-05T04:59:00Z",
+      "volume24hr": null,
+      "liquidity": 39120.67308,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "3515210",
+          "label": "<3",
+          "yes_token": "55140882533429609509674593082677727173185248646965494033442353731692140999791",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515211",
+          "label": "3",
+          "yes_token": "74625132095110018595190795574833540379630070098748268255315887945746454416109",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515212",
+          "label": "4",
+          "yes_token": "101719442187487015533507150600114696248425689502766563003930704998263980916134",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515213",
+          "label": "5",
+          "yes_token": "2725041711142995331419086969687414130187212945978505758689888797423036233692",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515214",
+          "label": "6+",
+          "yes_token": "57685689979303255996030008561614279824881057086379647007679088433240663349433",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "how-many-house-seats-will-the-democrats-win-in-florida",
+      "title": "How many House seats will the Democrats win in Florida?",
+      "end_date": "2027-01-05T04:59:00Z",
+      "volume24hr": null,
+      "liquidity": 77038.05419,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "3515340",
+          "label": "<4",
+          "yes_token": "56022594592649562730372326148060193494391809901540512522206687554577067448946",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515341",
+          "label": "4",
+          "yes_token": "51283923927500831733468241225328574935924606457547803389550250720754742045312",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515342",
+          "label": "5",
+          "yes_token": "13132992173134568377714686902053960238150793481308172368554707865207468905950",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515343",
+          "label": "6",
+          "yes_token": "8200911490742733329348186307847687799847253619068765615630117997710899512732",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515344",
+          "label": "7",
+          "yes_token": "19682203028845840828304564429349083757960088385983216375741869411157235357599",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515345",
+          "label": "8",
+          "yes_token": "75607324502671472978715254161998229829591610638427608817567605515143154253980",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515346",
+          "label": "9",
+          "yes_token": "72313731743270537669043281579964728750598081177526033536235571839791723706734",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515347",
+          "label": "10",
+          "yes_token": "884712003845603686921262175243541316502957357873948152440093481416886367247",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515348",
+          "label": "11",
+          "yes_token": "98179624616560682412117258435999561054654250750373243650964159821478168815040",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515349",
+          "label": "12+",
+          "yes_token": "83532555844234863075505505085325269754911219974142899900944387886104279894332",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "how-many-house-seats-will-the-democrats-win-in-new-york",
+      "title": "How many House seats will the Democrats win in New York?",
+      "end_date": "2027-01-05T04:59:00Z",
+      "volume24hr": 36.923077,
+      "liquidity": 56838.92987,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "3515295",
+          "label": "<16",
+          "yes_token": "95330555834005427520846426202905547771195003113204988843153997638396628348995",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515296",
+          "label": "16",
+          "yes_token": "25438782545434250879922389131635231762019541426400234688546640813489548678208",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515297",
+          "label": "17",
+          "yes_token": "26327788136094666738537469334748938763739505627543534884979035927623488195310",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515298",
+          "label": "18",
+          "yes_token": "115314865333604393581757036635375834707661294078778045627349646990614536374717",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515299",
+          "label": "19",
+          "yes_token": "81173625051252901515543793518973549122608633304505444430347911967388362522896",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515300",
+          "label": "20",
+          "yes_token": "46117325994001536136636661104011179814235156087006734112901822638014667432639",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515301",
+          "label": "21+",
+          "yes_token": "26101549997188805794321521254986604453991516610653547822638863893494908212761",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "how-many-house-seats-will-the-democrats-win-in-ohio",
+      "title": "How many House seats will the Democrats win in Ohio?",
+      "end_date": "2027-01-05T04:59:00Z",
+      "volume24hr": 39.086191,
+      "liquidity": 40690.5034,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "3515350",
+          "label": "<2",
+          "yes_token": "46672691941571451129008981248013835539518898639862422698524640082169188524627",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515351",
+          "label": "2",
+          "yes_token": "4568499824187055548032032530042286737013127196245695260432728381087798213555",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515352",
+          "label": "3",
+          "yes_token": "62863077402492024042752467651444212269153569943982070402415357233099505712341",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515353",
+          "label": "4",
+          "yes_token": "18498103781761528807203151598574886192122893722790691111393666339467933842016",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515354",
+          "label": "5",
+          "yes_token": "66859597835593396261012805355719769483040776072094950853800700830700871385076",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515355",
+          "label": "6",
+          "yes_token": "103474755371568300853926773183192259153850274043168275924864665517567901219843",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515356",
+          "label": "7+",
+          "yes_token": "20871405228065206870578220084525519443469066918391470310510525211786886487783",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "how-many-house-seats-will-the-democrats-win-in-new-jersey",
+      "title": "How many House seats will the Democrats win in New Jersey?",
+      "end_date": "2027-01-05T04:59:00Z",
+      "volume24hr": 1746.63208,
+      "liquidity": 38324.7774,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "3515220",
+          "label": "<8",
+          "yes_token": "78981973561842156147518277896957293557984086779827346868053509179455760407367",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515221",
+          "label": "8",
+          "yes_token": "83581856404879066396240031904918737671203933427499062667395479304005694175908",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515222",
+          "label": "9",
+          "yes_token": "21226456810674763503747850532479585404953493930759586580393781950591702104069",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515223",
+          "label": "10",
+          "yes_token": "32847272816688494392669468968324411931680116577278751390030143818004668795294",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "3515224",
+          "label": "11+",
+          "yes_token": "113002860832354936887331657105242746739823505361228954921800968311708769545137",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "how-many-senate-and-governor-elections-will-republicans-win-in-states-won-by-kamala-20260702152603469",
+      "title": "How many Senate and Governor elections will Republicans win in states won by Kamala?",
+      "end_date": "2027-01-05T04:59:00Z",
+      "volume24hr": 20,
+      "liquidity": 67134.48101,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "2773660",
+          "label": "0",
+          "yes_token": "28294078241774973285256649084440306691888285730255755091093168915966322363418",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2773661",
+          "label": "1",
+          "yes_token": "103958519682027741587774636673302511523692946285255348554290511917235462926116",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2773662",
+          "label": "2",
+          "yes_token": "12815952369395061580656040420894728094541250183730231747201102962701085209555",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2773663",
+          "label": "3",
+          "yes_token": "28579113252267527223832155149424278109860119002384099077360076430829563592066",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2773664",
+          "label": "4",
+          "yes_token": "64771564953115272311161980439253842436243653151202012647005022407341407188175",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2773665",
+          "label": "5",
+          "yes_token": "73116073697239693072116543892806424835294809122481388002988939952703649442951",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "2773666",
+          "label": "6+",
+          "yes_token": "88637194862828608034916483728893046443574907756017808088802178922974651505294",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "israel-election-reservistsnew-economic-party-vote-share",
+      "title": "Israel Election: Reservists\u2013New Economic Party vote share?",
+      "end_date": "2026-10-27T23:59:00Z",
+      "volume24hr": 70.635879,
+      "liquidity": 18191.09303,
+      "fees": {},
+      "markets": [
+        {
+          "market_id": "4424531",
+          "label": "<2.75%",
+          "yes_token": "15380479308052023924538017522008304451778071993128514683155414186998787527255",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4424532",
+          "label": "2.75-3.25%",
+          "yes_token": "13431680966105549931326209174414011157770925419234390254286305612960864330340",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4424533",
+          "label": "3.25-3.75%",
+          "yes_token": "64927587975112308157300486430455871753886782337981891077971057852621645985501",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4424534",
+          "label": "3.75-4.25%",
+          "yes_token": "53467547747659298481343621638970959747913082003801322041031146608095818762610",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        },
+        {
+          "market_id": "4424535",
+          "label": "4.25%+",
+          "yes_token": "12879205127262773625304774008776045095645219689484197165619488631585341372545",
+          "active": true,
+          "closed": false,
+          "fees": {
+            "makerBaseFee": 1000,
+            "takerBaseFee": 1000,
+            "feesEnabled": true,
+            "feeType": "politics_fees",
+            "feeSchedule": {
+              "exponent": 1,
+              "rate": 0.04,
+              "takerOnly": true,
+              "rebateRate": 0.25
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
