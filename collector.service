@@ -1,0 +1,14 @@
+[Unit]
+Description=Polymarket order book collector
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=collector
+WorkingDirectory=/home/collector/polymarket-arb-capture
+ExecStart=/home/collector/polymarket-arb-capture/.venv/bin/python collector.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

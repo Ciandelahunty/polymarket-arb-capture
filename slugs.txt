@@ -1,0 +1,21 @@
+# One Gamma event slug per line. Lines starting with # are ignored.
+balance-of-power-2026-midterms
+elon-musk-of-tweets-october-2026
+maduro-prison-time-527
+what-will-the-fed-rate-be-at-the-end-of-2026
+republican-senate-seats-after-the-2026-midterm-elections-927
+japan-core-cpi-yoy-in-2026-20260617224131789
+bank-of-japan-decision-in-december-20260918
+canada-annual-inflation-2026
+how-many-senate-and-house-seats-will-republicans-have-after-the-midterms-20260625152833634
+bank-of-korea-decision-in-november
+china-annual-inflation-2026
+holborn-and-st-pancras-by-election-green-vote-share
+holborn-and-st-pancras-by-election-labour-vote-share
+how-many-house-seats-will-the-democrats-win-in-minnesota
+how-many-house-seats-will-the-democrats-win-in-florida
+how-many-house-seats-will-the-democrats-win-in-new-york
+how-many-house-seats-will-the-democrats-win-in-ohio
+how-many-house-seats-will-the-democrats-win-in-new-jersey
+how-many-senate-and-governor-elections-will-republicans-win-in-states-won-by-kamala-20260702152603469
+israel-election-reservistsnew-economic-party-vote-share
