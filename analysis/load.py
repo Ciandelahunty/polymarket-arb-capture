@@ -104,6 +104,11 @@ def find_fee_rate(fees):
     return None, None
 
 
+def fees_disabled(fees):
+    """True if Polymarket marks the market as having fees switched off."""
+    return isinstance(fees, dict) and fees.get("feesEnabled") is False
+
+
 def load_universe(path=UNIVERSE):
     """Return one dict per event: slug, end time, and the YES token and fee
     rate of each open leg, in the same order the collector uses."""
@@ -117,6 +122,8 @@ def load_universe(path=UNIVERSE):
         for m in legs:
             if slug in FEE_OVERRIDES:
                 rate, src = FEE_OVERRIDES[slug], "override"
+            elif fees_disabled(m.get("fees")):
+                rate, src = 0.0, "feesEnabled=false"
             else:
                 rate, src = find_fee_rate(m.get("fees"))
                 if rate is None:
