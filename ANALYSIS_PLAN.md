@@ -53,6 +53,7 @@ Written and committed before any gaps were computed from the collected data. Any
 ## Known collection events
 
 - **23 Sept 2026, 06:25–06:26 UTC:** the collector was restarted several times by automatic system updates, pausing collection for roughly 30 seconds in total. Snapshots written as the collector was stopped may be damaged; the loader skips damaged records and reports how many.
+- **23 Sept 2026, 19:15 to 21:08 UTC:** the collector polled every 5 seconds instead of 2, because the updated collector file reverted the interval setting. Snapshots from this period are kept and analysed like all others, since survival measures use actual timestamps.
 
 ## Verified
 
