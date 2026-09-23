@@ -33,11 +33,21 @@ class Fill:
     fees: float | None = None
 
 
-def walk_book(levels, qty, rate, recorded_levels=RECORDED_LEVELS):
+def walk_book(levels, qty, rate, cut=None, shortfall_at_zero=False):
     """Take `qty` shares from `levels`, a list of [price, size] with the best
     price first. On asks this is the cost of buying; on bids, the proceeds of
     selling. The fee is charged on the shares taken at each level's price.
+
+    `cut` says whether the collector left out further levels of this side. If
+    it isn't recorded (snapshots taken before the collector recorded it), a
+    side with RECORDED_LEVELS levels is assumed to have been cut.
+
+    If the levels run out and the side was not cut, the fill is UNFILLABLE,
+    unless `shortfall_at_zero` is set, in which case the missing shares are
+    valued at a price of zero (see `basket` for why this applies when selling).
     """
+    if cut is None:
+        cut = len(levels) >= RECORDED_LEVELS
     remaining = qty
     notional = fees = 0.0
     for price, size in levels:
@@ -47,8 +57,10 @@ def walk_book(levels, qty, rate, recorded_levels=RECORDED_LEVELS):
         remaining -= take
         if remaining <= 1e-9:
             return Fill(OK, notional, fees)
-    if len(levels) >= recorded_levels:
+    if cut:
         return Fill(TRUNCATED)
+    if shortfall_at_zero:
+        return Fill(OK, notional, fees)
     return Fill(UNFILLABLE)
 
 
@@ -63,9 +75,16 @@ def basket(books, rates, qty, side):
     side="sell" walks each leg's bids (selling YES on every outcome, which is
     the same trade as buying NO on every outcome).
 
-    `books` has one entry per leg: a dict with "bids" and "asks", or None if
-    the leg is missing. Returns (status, price per basket before fees,
-    fees per basket); the last two are None unless status is OK.
+    When selling, an outcome whose bids can't fill the full size doesn't need
+    to be traded for the missing shares: buying NO on the other outcomes and
+    converting them yields cash plus a YES on that outcome, so the profit is at
+    least what it would be with those shares sold at zero. Sell-side shortfalls
+    are therefore valued at zero, provided the whole side of the book was seen.
+
+    `books` has one entry per leg: a dict with "bids" and "asks" (and, in later
+    snapshots, "bids_cut" and "asks_cut"), or None if the leg is missing.
+    Returns (status, price per basket before fees, fees per basket); the last
+    two are None unless status is OK.
     """
     key = "asks" if side == "buy" else "bids"
     statuses, notional, fees = [], 0.0, 0.0
@@ -73,7 +92,8 @@ def basket(books, rates, qty, side):
         if book is None:
             statuses.append(MISSING)
             continue
-        fill = walk_book(book[key], qty, rate)
+        fill = walk_book(book[key], qty, rate, cut=book.get(f"{key}_cut"),
+                         shortfall_at_zero=(side == "sell"))
         statuses.append(fill.status)
         if fill.status == OK:
             notional += fill.notional

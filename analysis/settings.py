@@ -12,7 +12,7 @@ OUTPUT_DIR = ROOT / "analysis" / "output"
 UNIVERSE = ROOT / "universe.json"
 
 POLL_INTERVAL_S = 2           # must match INTERVAL in collector.py
-RECORDED_LEVELS = 10          # must match LEVELS in collector.py
+RECORDED_LEVELS = 10          # levels kept per side before the collector recorded cuts
 SIZES = (1, 100, 500)         # basket sizes, in baskets
 
 R_BASE = 0.0411               # 13-week US T-bill, coupon equivalent, 22 Sept 2026

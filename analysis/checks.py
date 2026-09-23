@@ -53,8 +53,11 @@ def main():
     print(f"Hours below 95% of the expected {expected:.0f} snapshots "
           "(first and last hours are usually partial):")
     print(short.to_string() if len(short) else "  none")
-    ax = per_hour.plot(kind="bar", figsize=(14, 4), title="Snapshots per hour (UTC)")
-    ax.set_xticklabels([t.strftime("%d %H:00") for t in per_hour.index], fontsize=7)
+    fig, ax = plt.subplots(figsize=(14, 4))
+    ax.bar(range(len(per_hour)), per_hour.values)
+    ax.set_xticks(range(len(per_hour)))
+    ax.set_xticklabels([t.strftime("%d %H:00") for t in per_hour.index], rotation=90, fontsize=7)
+    ax.set_title("Snapshots per hour (UTC)")
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / "coverage.png", dpi=120)
     plt.close()

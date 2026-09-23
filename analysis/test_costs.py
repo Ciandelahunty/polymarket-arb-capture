@@ -113,3 +113,39 @@ def test_buy_gap_matches_worked_example():
 def test_sell_gap_sign():
     assert sell_gap(1.03, 0.01) == pytest.approx(-0.02)   # violation
     assert sell_gap(0.97, 0.01) > 0                        # no violation
+
+
+# --- Recorded depth flags and sell-side shortfalls ----------------------
+
+def test_cut_flag_overrides_level_count():
+    three = [[0.30, 10], [0.31, 10], [0.32, 10]]
+    assert walk_book(three, 100, 0.0, cut=True).status == TRUNCATED
+    ten = [[0.30 + 0.01 * i, 10] for i in range(10)]
+    assert walk_book(ten, 500, 0.0, cut=False).status == UNFILLABLE
+
+
+def test_sell_leg_without_bids_is_valued_at_zero():
+    books = [book(bids=[(0.60, 100)]), book(bids=[(0.45, 100)]), book(bids=[])]
+    status, price, fees = basket(books, [0.0] * 3, 100, "sell")
+    assert status == OK
+    assert price == pytest.approx(1.05)
+
+
+def test_sell_partial_depth_values_shortfall_at_zero():
+    books = [book(bids=[(0.50, 40)])]
+    status, price, fees = basket(books, [0.04], 100, "sell")
+    assert status == OK
+    assert price == pytest.approx(40 * 0.50 / 100)
+    assert fees == pytest.approx(40 * 0.04 * 0.5 * 0.5 / 100)
+
+
+def test_sell_side_that_was_cut_is_still_truncated():
+    ten = [[0.50 - 0.01 * i, 1] for i in range(10)]
+    assert basket([book(bids=ten)], [0.0], 100, "sell")[0] == TRUNCATED
+    flagged = {"bids": [[0.5, 1]], "asks": [], "bids_cut": True}
+    assert basket([flagged], [0.0], 100, "sell")[0] == TRUNCATED
+
+
+def test_buy_leg_without_asks_is_still_unfillable():
+    books = [book(asks=[(0.5, 100)]), book(asks=[])]
+    assert basket(books, [0.0] * 2, 1, "buy")[0] == UNFILLABLE
