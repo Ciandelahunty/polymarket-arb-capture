@@ -1,4 +1,7 @@
 data/
+processed/
+analysis/output/
 *.log
 .venv/
 __pycache__/
+pytest_cache/
