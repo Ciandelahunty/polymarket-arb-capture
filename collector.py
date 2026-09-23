@@ -14,9 +14,10 @@ from concurrent.futures import ThreadPoolExecutor
 import requests
 
 BOOKS_URL = "https://clob.polymarket.com/books"
-INTERVAL = 2       # seconds between snapshots
+INTERVAL = 5       # seconds between snapshots
 CHUNK = 100        # tokens per request; lower it if the log shows missing books
-LEVELS = 10        # price levels kept on each side of each book
+LEVELS = 10        # minimum price levels kept on each side of each book
+KEEP_SHARES = 1000 # keep further levels until this many shares are covered
 DATA_DIR = "data"
 UNIVERSE = "universe.json"
 
@@ -43,15 +44,31 @@ def fetch(chunk):
     return sent, received, books
 
 
+def keep_levels(levels):
+    """Keep the best LEVELS levels, then further levels until KEEP_SHARES
+    shares are covered. Returns the kept levels and whether any were left out."""
+    kept, shares = [], 0.0
+    for price, size in levels:
+        if len(kept) >= LEVELS and shares >= KEEP_SHARES:
+            break
+        kept.append([price, size])
+        shares += size
+    return kept, len(kept) < len(levels)
+
+
 def trim(book):
-    """Sort each side best-first and keep the top LEVELS levels."""
-    bids = sorted(book.get("bids", []), key=lambda x: float(x["price"]), reverse=True)
-    asks = sorted(book.get("asks", []), key=lambda x: float(x["price"]))
+    """Sort each side best-first and keep enough levels (see keep_levels)."""
+    bids = sorted(([float(b["price"]), float(b["size"])] for b in book.get("bids", [])),
+                  key=lambda x: x[0], reverse=True)
+    asks = sorted(([float(a["price"]), float(a["size"])] for a in book.get("asks", [])),
+                  key=lambda x: x[0])
+    bids, bids_cut = keep_levels(bids)
+    asks, asks_cut = keep_levels(asks)
     return {
         "token": book.get("asset_id"),
         "server_ts": book.get("timestamp"),
-        "bids": [[float(b["price"]), float(b["size"])] for b in bids[:LEVELS]],
-        "asks": [[float(a["price"]), float(a["size"])] for a in asks[:LEVELS]],
+        "bids": bids, "asks": asks,
+        "bids_cut": bids_cut, "asks_cut": asks_cut,
     }
 
 
@@ -60,8 +77,6 @@ def main():
     tokens = load_tokens()
     hour = time.strftime("%Y%m%d%H", time.gmtime())
     snapshots_this_hour = 0
-    if snapshots_this_hour % 30 == 1:
-            print(time.strftime("%H:%M:%S"), "snapshot written for", len(tokens), "tokens", flush=True)
     pool = ThreadPoolExecutor(max_workers=8)
     next_tick = time.time()
     logging.info("started with %d tokens", len(tokens))

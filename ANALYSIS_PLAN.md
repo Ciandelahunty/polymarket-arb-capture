@@ -1,11 +1,11 @@
 # Analysis plan
 
-Written and committed before any gaps have been computed from the collected data. Any later changes are listed under **Deviations** with the reason, and results at interim points are labelled preliminary and produced with the same code.
+Written and committed before any gaps were computed from the collected data. Any later change is listed under **Deviations** with the reason, and results at interim points are labelled preliminary and produced with the same code.
 
 ## Data
 
 - **Sample:** 20 negRisk events (not augmented) listed in `slugs.txt`; the markets and their state at the start are in `universe.json`.
-- **Collection:** order books for the YES token of every open outcome, top 10 price levels per side, polled at 2 second intervals from 22 September 2026 (~17:15 UTC) on a server in Helsinki.
+- **Collection:** order books for the YES token of every open outcome, top 10 price levels per side, polled every 2 seconds from 22 September 2026 (~17:15 UTC) on a server in Helsinki.
 - **Settings** used by the code are in `analysis/settings.py` and match this document.
 
 ## Definitions
@@ -26,7 +26,7 @@ Written and committed before any gaps have been computed from the collected data
 
 **Discounting.** `r` is the 13-week US Treasury bill yield on 22 September 2026, the latest published when this plan was written: 4.11% on a coupon-equivalent basis (the annualised return on the price paid). `t` is the time from the snapshot to the event's end date in `universe.json`, in years. Buy-side results are also reported at r = 0 and at r ± 1 percentage point.
 
-**Complete basket.** Every open outcome's book is present in the snapshot. If any are missing (for example because a request failed), the basket is **missing** at every size for that snapshot, and they is never recorded as a violation.
+**Complete basket.** Every open outcome's book is present in the snapshot. If any is missing (for example because a request failed), the basket is **missing** at every size for that snapshot, never a violation.
 
 **Recorded depth.** Only the top 10 price levels of each book are stored. If the recorded levels hold too few shares for a size:
 - fewer than 10 levels were recorded → the whole side of the book was seen, and the basket is **unfillable** at that size;
@@ -54,11 +54,15 @@ Written and committed before any gaps have been computed from the collected data
 
 - **23 Sept 2026, 06:25–06:26 UTC:** the collector was restarted several times by automatic system updates, pausing collection for roughly 30 seconds in total. Snapshots written as the collector was stopped may be damaged; the loader skips damaged records and reports how many.
 
-## Checks
+## Verified
 
 - **Conversion fee (23 Sept 2026).** The sell-side calculation assumes that converting NO positions on every outcome into cash carries no fee. Checked by reading `getFeeBips` on the Neg Risk Adapter contract (`0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296`) via Polygonscan for three of the sampled events, using each event's negRisk market ID. All three returned 0.
 - **Discount rate.** Taken from the US Treasury's published daily bill rates for 22 Sept 2026, coupon-equivalent basis.
 
 ## Deviations
 
-None yet.
+Both changes below followed the first pipeline test on 23 Sept 2026, which checked data quality on the first 25 hours. No survival, capture-rate or attention analysis had been run.
+
+1. **Sell-side shortfalls valued at zero.** If an outcome's bids can't fill the full size, the unfilled shares are now valued at a price of zero instead of making the basket unfillable. This is achievable without trading those shares: buying NO on the other outcomes and converting them yields cash plus a YES on the thin outcome, so the profit is at least the sum of the bids filled minus $1. It only applies when the whole side of the book was recorded; a side that was cut short is still treated as truncated. Before this change, four events had no sell-side result because one outcome had no bids at all.
+
+2. **Deeper order books recorded from HH:MM UTC, 23 Sept 2026.** In the first test, 57% of buy baskets at size 500 were truncated under the 10-level limit. The collector now keeps at least 10 levels per side and continues until 1,000 shares are covered, and records whether any levels were left out. Snapshots before this time keep the original rule (a side with exactly 10 recorded levels is treated as possibly cut).
