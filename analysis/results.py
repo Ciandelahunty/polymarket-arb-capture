@@ -179,16 +179,22 @@ def main():
                          "p75": g.quantile(.75), "p95": g.quantile(.95), "min": g.min()})
     rep.table(pd.DataFrame(rows).set_index(["side", "size"]).round(2), "gap_distribution")
 
+    # Cumulative share of snapshots within x cents of the bound. Drawn from
+    # 1,001 quantiles rather than every snapshot, to keep the chart light.
     fig, axes = plt.subplots(1, 2, figsize=(13, 4), sharey=True)
+    levels = np.linspace(0, 1, 1001)
     for ax, side in zip(axes, SIDES):
-        for q in (1, LARGE):
-            g = (df[f"{side}_gap_{q}"].dropna() * 100).clip(-5, 60)
-            ax.hist(g, bins=260, range=(-5, 60), histtype="step", density=True, label=f"size {q}")
+        for q in SIZES:
+            g = df[f"{side}_gap_{q}"].dropna() * 100
+            if len(g):
+                ax.plot(g.quantile(levels).to_numpy(), levels, label=f"size {q}")
         ax.axvline(0, color="black", lw=0.8)
+        ax.set_xlim(-5, 60)
+        ax.set_ylim(0, 1)
         ax.set_title(f"{side.capitalize()} side")
         ax.set_xlabel("gap (cents per basket); left of 0 = violation")
-        ax.legend()
-    axes[0].set_ylabel("share of snapshots (density)")
+        ax.legend(loc="lower right")
+    axes[0].set_ylabel("share of snapshots with a gap this small or smaller")
     plt.tight_layout()
     plt.savefig(RESULTS_DIR / "gap_distribution.png", dpi=120)
     plt.close()

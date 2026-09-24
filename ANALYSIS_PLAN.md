@@ -59,23 +59,27 @@ Written and committed before any gaps were computed from the collected data. Any
 
 - **Conversion fee (23 Sept 2026).** The sell-side calculation assumes that converting NO positions on every outcome into cash carries no fee. Checked by reading `getFeeBips` on the Neg Risk Adapter contract (`0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296`) via Polygonscan for three of the sampled events, using each event's negRisk market ID. All three returned 0.
 - **Discount rate.** Taken from the US Treasury's published daily bill rates for 22 Sept 2026, coupon-equivalent basis.
+- **End dates (24 Sept).** Checked against the resolution rules for four events with violations as of the 24th - Maduro's Prison Time, the Bank of Korea Decision, Chinese Inflation and the Fed Rate. All are at or after the expected resolution recorded in universe.json, so the time to resolution is, if anything, overstated, and buy-side violations understated.
 
 ## Deviations
 
 All changes below followed the first pipeline test on 23 Sept 2026, which checked data quality on the first 25 hours. No survival, capture-rate or attention analysis had yet been run.
 
-1. **Sell-side shortfalls valued at zero.** If an outcome's bids can't fill the full size, the unfilled shares are now valued at a price of zero instead of making the basket unfillable. This is achievable without trading those shares: buying NO on the other outcomes and converting them yields cash plus a YES on the thin outcome, so the profit is at least the sum of the bids filled minus $1. It only applies when the whole side of the book was recorded; a side that was cut short is still treated as truncated. Before this change, four events had no sell-side result because one outcome had no bids at all.
+1. **Sell-side shortfalls valued at zero.** 
+If an outcome's bids can't fill the full size, the unfilled shares are now valued at a price of zero instead of making the basket unfillable. This is achievable without trading those shares: buying NO on the other outcomes and converting them yields cash plus a YES on the thin outcome, so the profit is at least the sum of the bids filled minus $1. It only applies when the whole side of the book was recorded; a side that was cut short is still treated as truncated. Before this change, four events had no sell-side result because one outcome had no bids at all.
 
-2. **Deeper order books recorded from 19:15 UTC, 23 Sept 2026.** In the first test, 57% of buy baskets at size 500 were truncated under the 10-level limit. The collector now keeps at least 10 levels per side and continues until 1,000 shares are covered, and records whether any levels were left out. Snapshots before this time keep the original rule (a side with exactly 10 recorded levels is treated as possibly cut).
+2. **Deeper order books recorded from 19:15 UTC, 23 Sept 2026.** 
+In the first test, 57% of buy baskets at size 500 were truncated under the 10-level limit. The collector now keeps at least 10 levels per side and continues until 1,000 shares are covered, and records whether any levels were left out. Snapshots before this time keep the original rule (a side with exactly 10 recorded levels is treated as possibly cut).
 
 3. **Episode details (written before any episode results were computed)**
-
 - Snapshots more than 12 seconds apart are treated as having missing data between them (the collector polls every 2 seconds, or 5 during the 23 Sept incident).
 - Snapshots at or after an event's end date are treated as unknown, since the event may be resolving.
 - Episode durations are now reported as bounds: the lower bound is the time between the first and last snapshots including a violation; the upper bound is the time between the last clean snapshot and the first clean snapshot after, and is only given when neither end is censored.
 
 4. **Additions to the results (after seeing the preliminary episode summary on 24 Sept).**
-
 - A paper-trading bot: on first seeing a violation at size 1, it tries to trade at the next snapshot at that snapshot's prices, all or nothing, and records the profit. It measures the cost of reacting one snapshot late.
 - Capture rate is also reported per episode (whether an episode ever reaches a violation at the larger size), alongside the per-snapshot measure in the plan.
 - For attention, volume is the 24-hour volume in universe.json at the start of collection. Two more measures are reported alongside it: the median quote age of each event's stalest leg, and each event's number of outcomes.
+
+5. **Holding rewards (24 Sept).** 
+Polymarket pays a holding reward of 3.25% a year on positions in selected markets (Help Center, checked 24 Sept 2026). Of the sample, only balance of power is eligible, so its buy-side discount rate is 4.11% − 3.25% = 0.86%. The reward is paid on the position's value at mid-prices, which for a basket is close to $1, so this is an approximation.

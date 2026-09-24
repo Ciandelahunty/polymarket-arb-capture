@@ -38,3 +38,4 @@ def test_capture_at_snapshots_counts():
     assert c["visible_at_1"] == 4
     assert (c["remain"], c["gone"], c["unknown"]) == (1, 2, 1)
     assert c["capture_rate"] == pytest.approx(1 / 3)
+

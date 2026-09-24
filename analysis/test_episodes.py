@@ -128,3 +128,16 @@ def test_buy_gap_is_discounted():
     ep = episodes_for(df, "buy", 1, r=0.04)
     assert len(ep) == 1
     assert ep.loc[0, "min_gap"] == pytest.approx(0.95 - 1 / 1.04)
+
+
+def test_holding_reward_lowers_the_buy_side_discount(monkeypatch):
+    import episodes
+    monkeypatch.setattr(episodes, "HOLDING_REWARD_EVENTS", {"e"})
+    monkeypatch.setattr(episodes, "HOLDING_REWARD_RATE", 0.03)
+    df = pd.DataFrame({"tick": [0.0, 2.0, 4.0], "event": "e", "t_years": 1.0,
+                       "window_s": 0.1, "buy_status_1": "ok",
+                       "buy_price_1": [0.99, 0.985, 0.99], "buy_fees_1": 0.0})
+    # At r = 4% less a 3% reward, the bound is 1/1.01 = 0.9901: 0.985 is below it.
+    ep = episodes_for(df, "buy", 1, r=0.04)
+    assert len(ep) == 1
+    assert ep.loc[0, "min_gap"] == pytest.approx(0.985 - 1 / 1.01)

@@ -26,7 +26,8 @@ import pandas as pd
 
 from costs import OK
 from load import load_processed
-from settings import MAX_STEP_S, OUTPUT_DIR, R_BASE, SIZES, STALENESS_CUTOFF_S
+from settings import (HOLDING_REWARD_EVENTS, HOLDING_REWARD_RATE, MAX_STEP_S,
+                      OUTPUT_DIR, R_BASE, SIZES, STALENESS_CUTOFF_S)
 
 N, V, U = 0, 1, 2
 
@@ -35,11 +36,19 @@ EPISODE_COLUMNS = ["event", "side", "size", "start", "end", "n_snapshots",
                    "right_censored", "interrupted", "min_gap"]
 
 
+def buy_discount_rate(events, r=R_BASE):
+    """Discount rate for each row: r, less the holding reward for events that
+    earn one (holding the basket until resolution earns the reward)."""
+    reward = np.where(events.isin(HOLDING_REWARD_EVENTS), HOLDING_REWARD_RATE, 0.0)
+    return r - pd.Series(reward, index=events.index)
+
+
 def gap_values(df, side, q, r=R_BASE):
     """Gap for each row at size q; NaN where the basket isn't priceable."""
     price, fees = df[f"{side}_price_{q}"], df[f"{side}_fees_{q}"]
     if side == "buy":
-        gap = price + fees - (1.0 + r) ** (-df["t_years"])
+        rate = buy_discount_rate(df["event"], r)
+        gap = price + fees - (1.0 + rate) ** (-df["t_years"])
     else:
         gap = 1.0 - (price - fees)
     return gap.where(df[f"{side}_status_{q}"] == OK)
