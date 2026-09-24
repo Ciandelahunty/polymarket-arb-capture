@@ -62,7 +62,7 @@ Written and committed before any gaps were computed from the collected data. Any
 
 ## Deviations
 
-Both changes below followed the first pipeline test on 23 Sept 2026, which checked data quality on the first 25 hours. No survival, capture-rate or attention analysis had been run.
+All changes below followed the first pipeline test on 23 Sept 2026, which checked data quality on the first 25 hours. No survival, capture-rate or attention analysis had yet been run.
 
 1. **Sell-side shortfalls valued at zero.** If an outcome's bids can't fill the full size, the unfilled shares are now valued at a price of zero instead of making the basket unfillable. This is achievable without trading those shares: buying NO on the other outcomes and converting them yields cash plus a YES on the thin outcome, so the profit is at least the sum of the bids filled minus $1. It only applies when the whole side of the book was recorded; a side that was cut short is still treated as truncated. Before this change, four events had no sell-side result because one outcome had no bids at all.
 
@@ -73,3 +73,9 @@ Both changes below followed the first pipeline test on 23 Sept 2026, which check
 - Snapshots more than 12 seconds apart are treated as having missing data between them (the collector polls every 2 seconds, or 5 during the 23 Sept incident).
 - Snapshots at or after an event's end date are treated as unknown, since the event may be resolving.
 - Episode durations are now reported as bounds: the lower bound is the time between the first and last snapshots including a violation; the upper bound is the time between the last clean snapshot and the first clean snapshot after, and is only given when neither end is censored.
+
+4. **Additions to the results (after seeing the preliminary episode summary on 24 Sept).**
+
+- A paper-trading bot: on first seeing a violation at size 1, it tries to trade at the next snapshot at that snapshot's prices, all or nothing, and records the profit. It measures the cost of reacting one snapshot late.
+- Capture rate is also reported per episode (whether an episode ever reaches a violation at the larger size), alongside the per-snapshot measure in the plan.
+- For attention, volume is the 24-hour volume in universe.json at the start of collection. Two more measures are reported alongside it: the median quote age of each event's stalest leg, and each event's number of outcomes.

@@ -157,4 +157,16 @@ def load_processed(columns=None):
     files = sorted(PROCESSED_DIR.glob("*.parquet"))
     if not files:
         raise SystemExit("No processed files found. Run analysis/build_table.py first.")
-    return pd.concat((pd.read_parquet(f, columns=columns) for f in files), ignore_index=True)
+    return pd.concat((_compact(pd.read_parquet(f, columns=columns)) for f in files),
+                     ignore_index=True)
+
+
+_STATUSES = ["ok", "truncated", "unfillable", "missing"]
+
+
+def _compact(df):
+    """Store the status columns as categories, which uses far less memory."""
+    for col in df.columns:
+        if "_status_" in col:
+            df[col] = pd.Categorical(df[col], categories=_STATUSES)
+    return df
