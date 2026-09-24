@@ -67,3 +67,9 @@ Both changes below followed the first pipeline test on 23 Sept 2026, which check
 1. **Sell-side shortfalls valued at zero.** If an outcome's bids can't fill the full size, the unfilled shares are now valued at a price of zero instead of making the basket unfillable. This is achievable without trading those shares: buying NO on the other outcomes and converting them yields cash plus a YES on the thin outcome, so the profit is at least the sum of the bids filled minus $1. It only applies when the whole side of the book was recorded; a side that was cut short is still treated as truncated. Before this change, four events had no sell-side result because one outcome had no bids at all.
 
 2. **Deeper order books recorded from 19:15 UTC, 23 Sept 2026.** In the first test, 57% of buy baskets at size 500 were truncated under the 10-level limit. The collector now keeps at least 10 levels per side and continues until 1,000 shares are covered, and records whether any levels were left out. Snapshots before this time keep the original rule (a side with exactly 10 recorded levels is treated as possibly cut).
+
+3. **Episode details (written before any episode results were computed)**
+
+- Snapshots more than 12 seconds apart are treated as having missing data between them (the collector polls every 2 seconds, or 5 during the 23 Sept incident).
+- Snapshots at or after an event's end date are treated as unknown, since the event may be resolving.
+- Episode durations are now reported as bounds: the lower bound is the time between the first and last snapshots including a violation; the upper bound is the time between the last clean snapshot and the first clean snapshot after, and is only given when neither end is censored.

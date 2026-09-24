@@ -11,15 +11,8 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
 from costs import OK
-from load import load_universe
-from settings import OUTPUT_DIR, POLL_INTERVAL_S, PROCESSED_DIR, R_BASE, SIZES, STALENESS_CUTOFF_S
-
-
-def load_processed():
-    files = sorted(PROCESSED_DIR.glob("*.parquet"))
-    if not files:
-        raise SystemExit("No processed files found. Run analysis/build_table.py first.")
-    return pd.concat((pd.read_parquet(f) for f in files), ignore_index=True)
+from load import load_processed, load_universe
+from settings import OUTPUT_DIR, POLL_INTERVAL_S, R_BASE, SIZES, STALENESS_CUTOFF_S
 
 
 def add_gaps(df, r):

@@ -3,7 +3,9 @@ import json
 import zlib
 from datetime import datetime
 
-from settings import UNIVERSE
+import pandas as pd
+
+from settings import PROCESSED_DIR, UNIVERSE
 
 GZIP_MAGIC = b"\x1f\x8b\x08"
 _BLOCK = 1 << 16
@@ -147,3 +149,12 @@ def load_universe(path=UNIVERSE):
         raise SystemExit("Fix these in universe.json or FEE_OVERRIDES in load.py:\n  "
                          + "\n  ".join(dict.fromkeys(problems)))
     return events
+
+
+def load_processed(columns=None):
+    """Read every processed hourly table into one DataFrame. Pass `columns`
+    to read only those columns, which saves a lot of memory on the full data."""
+    files = sorted(PROCESSED_DIR.glob("*.parquet"))
+    if not files:
+        raise SystemExit("No processed files found. Run analysis/build_table.py first.")
+    return pd.concat((pd.read_parquet(f, columns=columns) for f in files), ignore_index=True)
