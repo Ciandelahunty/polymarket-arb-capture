@@ -83,3 +83,6 @@ In the first test, 57% of buy baskets at size 500 were truncated under the 10-le
 
 5. **Holding rewards (24 Sept).** 
 Polymarket pays a holding reward of 3.25% a year on positions in selected markets (Help Center, checked 24 Sept 2026). Of the sample, only balance of power is eligible, so its buy-side discount rate is 4.11% − 3.25% = 0.86%. The reward is paid on the position's value at mid-prices, which for a basket is close to $1, so this is an approximation.
+
+6. **How episodes ended (added 24 Sept, after seeing the first results).**
+ Trades for every market in the sample are downloaded from Polymarket's public trades endpoint for the collection period. For each episode, the event's trades are examined from 2 seconds before its start to 2 seconds after its first clean snapshot, in the direction that would capture the violation: for the buy side, buying YES or selling NO on a leg; for the sell side, the reverse. Each episode is classed as "one trader took every leg", "some legs traded" or "no trades in that direction". The count is compared with the number expected in a window of the same length at the event's average rate.

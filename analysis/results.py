@@ -18,7 +18,7 @@ import pandas as pd
 from costs import OK
 from episodes import N, U, V, classify, episodes_for, gap_values, needed_columns
 from load import load_processed
-from settings import (MAX_STEP_S, OUTPUT_DIR, R_BASE, R_SENSITIVITY, SIZES,
+from settings import (DATA_DIR, MAX_STEP_S, OUTPUT_DIR, R_BASE, R_SENSITIVITY, SIZES,
                       STALENESS_CUTOFF_S, UNIVERSE)
 
 RESULTS_DIR = OUTPUT_DIR / "results"
@@ -132,6 +132,55 @@ def capture_in_episodes(episodes, df, side, q):
             "share": hits / len(ep) if len(ep) else np.nan}
 
 
+# --- How episodes ended: trades around each episode ---------------------------
+
+MARGIN_S = 2.0   # trade timestamps are to the second; allow this much either side
+
+
+def trade_direction(side, is_yes):
+    """+1 for a trade that gains YES exposure (buying YES or selling NO), -1 for
+    the reverse. Buying the basket needs +1 on every leg; selling it, -1."""
+    return ((side == "BUY") == is_yes).astype(int) * 2 - 1
+
+
+def classify_trades(window, legs, want):
+    """How an episode ended, from the trades in its window.
+
+    `window` holds the event's trades from just before the episode until just
+    after it closed; `legs` is the number of outcomes; `want` is +1 for a
+    buy-side episode and -1 for a sell-side one.
+    """
+    right = window[window["direction"] == want]
+    if len(right) == 0:
+        return "no trades in that direction", 0, 0
+    legs_per_trader = right.groupby("proxyWallet")["conditionId"].nunique()
+    most = int(legs_per_trader.max())
+    if most >= legs:
+        return "one trader took every leg", len(right), most
+    return "some legs traded", len(right), most
+
+
+def episode_trades(episodes, trades, legs_by_event, start, end):
+    """For each episode, the trades around it and a comparison with how many
+    trades in that direction the event sees in a window of the same length."""
+    span = max(end - start, 1.0)
+    rows = []
+    for e in episodes.itertuples():
+        want = 1 if e.side == "buy" else -1
+        lo = e.start - MARGIN_S
+        hi = (e.end if np.isnan(e.next_clean) else e.next_clean) + MARGIN_S
+        ev = trades[trades["event"] == e.event]
+        window = ev[(ev["timestamp"] >= lo) & (ev["timestamp"] <= hi)]
+        outcome, n, most = classify_trades(window, legs_by_event[e.event], want)
+        per_second = (ev["direction"] == want).sum() / span
+        rows.append({"event": e.event[:40], "side": e.side, "size": e.size,
+                     "start": pd.to_datetime(e.start, unit="s", utc=True).strftime("%d %b %H:%M:%S"),
+                     "window_s": hi - lo, "legs": legs_by_event[e.event],
+                     "trades_in_direction": n, "expected": per_second * (hi - lo),
+                     "most_legs_one_trader": most, "outcome": outcome})
+    return pd.DataFrame(rows)
+
+
 # --- Main ---------------------------------------------------------------------
 
 def main():
@@ -150,7 +199,7 @@ def main():
     # Discount rate sensitivity needs the raw prices, so do it first.
     sens = []
     for r in sorted(set(R_SENSITIVITY) | {R_BASE}):
-        row = {"r": r}
+        row = {"r": round(r, 4)}
         for q in SIZES:
             g = gap_values(df, "buy", q, r).where(df["t_years"] > 0)
             row[f"median_gap_{q}"] = g.median() * 100
@@ -229,7 +278,7 @@ def main():
             deepest_gap_c=("min_gap", lambda s: s.min() * 100))
         rep.table(summary.round(2), "survival")
         listing = base_eps.copy()
-        for col in ("start", "end"):
+        for col in ("start", "end", "prev_clean", "next_clean"):
             listing[col] = pd.to_datetime(listing[col], unit="s", utc=True)
         listing["min_gap"] = listing["min_gap"] * 100
         listing.to_csv(RESULTS_DIR / "episodes.csv", index=False)
@@ -288,6 +337,28 @@ def main():
                     total_profit_usd=("pnl", "sum"))
                if len(trades) else pd.DataFrame())
     rep.table(summary.round(4) if len(summary) else pd.DataFrame({"sightings": [0]}), "paper_bot")
+
+    # How episodes ended.
+    rep.heading("How episodes ended: trades around each episode")
+    trades_path = DATA_DIR / "trades.parquet"
+    if not trades_path.exists():
+        rep.text("No trade data yet. Run analysis/trades.py first.")
+    elif not len(base_eps):
+        rep.text("No episodes.")
+    else:
+        trades = pd.read_parquet(trades_path)
+        trades["direction"] = trade_direction(trades["side"], trades["is_yes"])
+        legs = {s: sum(not m.get("closed") for m in e["markets"]) for s, e in universe.items()}
+        rep.text(f"Trades from {MARGIN_S:.0f}s before each episode to {MARGIN_S:.0f}s after its first "
+                 "clean snapshot, in the direction that would capture the violation (buying the "
+                 "basket: buying YES or selling NO on a leg; selling it: the reverse). \"Expected\" "
+                 "is the number such a window would contain at the event's average rate.")
+        ended = episode_trades(base_eps, trades, legs, df["tick"].min(), df["tick"].max())
+        rep.table(ended.round(2), "episode_trades")
+        counts = ended.groupby(["side", "size", "outcome"]).size().rename("episodes")
+        rep.table(counts.to_frame(), "episode_trade_outcomes")
+        rep.text(f"\nAcross all episodes: {ended['trades_in_direction'].sum()} trades in the "
+                 f"capturing direction, against {ended['expected'].sum():.1f} expected.")
 
     # 5. Attention.
     rep.heading("5. Attention: events ranked by 24-hour volume at the start of collection")

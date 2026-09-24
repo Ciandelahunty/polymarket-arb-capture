@@ -141,3 +141,10 @@ def test_holding_reward_lowers_the_buy_side_discount(monkeypatch):
     ep = episodes_for(df, "buy", 1, r=0.04)
     assert len(ep) == 1
     assert ep.loc[0, "min_gap"] == pytest.approx(0.985 - 1 / 1.01)
+
+
+def test_clean_snapshots_either_side_are_recorded():
+    (ep,) = run([N, V, V, N])          # snapshots at 0, 2, 4, 6 seconds
+    assert (ep["prev_clean"], ep["next_clean"]) == (0, 6)
+    (ep,) = run([V, V, N])
+    assert math.isnan(ep["prev_clean"]) and ep["next_clean"] == 4

@@ -31,8 +31,8 @@ from settings import (HOLDING_REWARD_EVENTS, HOLDING_REWARD_RATE, MAX_STEP_S,
 
 N, V, U = 0, 1, 2
 
-EPISODE_COLUMNS = ["event", "side", "size", "start", "end", "n_snapshots",
-                   "duration_min_s", "duration_max_s", "left_censored",
+EPISODE_COLUMNS = ["event", "side", "size", "start", "end", "prev_clean", "next_clean",
+                   "n_snapshots", "duration_min_s", "duration_max_s", "left_censored",
                    "right_censored", "interrupted", "min_gap"]
 
 
@@ -97,6 +97,8 @@ def find_episodes(ticks, states, gaps, max_step=MAX_STEP_S):
         episodes.append({
             "start": k_ticks[s],
             "end": k_ticks[e],
+            "prev_clean": np.nan if left else k_ticks[s - 1],
+            "next_clean": np.nan if right else k_ticks[e + 1],
             "n_snapshots": int(e - s + 1),
             "duration_min_s": k_ticks[e] - k_ticks[s],
             "duration_max_s": (np.nan if left or right
@@ -145,7 +147,7 @@ def main():
                 ep["staleness_filter"] = cutoff is not None
                 parts.append(ep)
     episodes = pd.concat(parts, ignore_index=True)
-    for col in ("start", "end"):
+    for col in ("start", "end", "prev_clean", "next_clean"):
         episodes[col] = pd.to_datetime(episodes[col], unit="s", utc=True)
     episodes.to_csv(OUTPUT_DIR / "episodes.csv", index=False)
 

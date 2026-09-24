@@ -39,3 +39,34 @@ def test_capture_at_snapshots_counts():
     assert (c["remain"], c["gone"], c["unknown"]) == (1, 2, 1)
     assert c["capture_rate"] == pytest.approx(1 / 3)
 
+
+
+# --- How episodes ended ----------------------------------------------------
+
+from results import classify_trades, trade_direction
+
+
+def test_trade_direction():
+    side = pd.Series(["BUY", "SELL", "BUY", "SELL"])
+    is_yes = pd.Series([True, True, False, False])
+    # Buying YES or selling NO gains YES exposure (+1); the other two lose it.
+    assert list(trade_direction(side, is_yes)) == [1, -1, -1, 1]
+
+
+def window(rows):
+    return pd.DataFrame(rows, columns=["proxyWallet", "conditionId", "direction"])
+
+
+def test_one_trader_taking_every_leg():
+    w = window([("a", "m1", 1), ("a", "m2", 1), ("a", "m3", 1), ("b", "m1", -1)])
+    assert classify_trades(w, legs=3, want=1) == ("one trader took every leg", 3, 3)
+
+
+def test_some_legs_traded():
+    w = window([("a", "m1", 1), ("b", "m2", 1)])
+    assert classify_trades(w, legs=3, want=1)[0] == "some legs traded"
+
+
+def test_no_trades_in_the_capturing_direction():
+    w = window([("a", "m1", -1)])
+    assert classify_trades(w, legs=3, want=1)[0] == "no trades in that direction"
