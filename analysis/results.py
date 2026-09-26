@@ -161,14 +161,19 @@ def classify_trades(window, legs, want):
 
 
 def episode_trades(episodes, trades, legs_by_event, start, end):
-    """For each episode, the trades around it and a comparison with how many
-    trades in that direction the event sees in a window of the same length."""
+    """For each episode inside the period the trade data covers (start to end),
+    the trades around it and a comparison with how many trades in that direction
+    the event sees in a window of the same length. Episodes outside that period
+    are skipped; the second value returned counts them."""
     span = max(end - start, 1.0)
-    rows = []
+    rows, skipped = [], 0
     for e in episodes.itertuples():
         want = 1 if e.side == "buy" else -1
         lo = e.start - MARGIN_S
         hi = (e.end if np.isnan(e.next_clean) else e.next_clean) + MARGIN_S
+        if lo < start or hi > end:
+            skipped += 1
+            continue
         ev = trades[trades["event"] == e.event]
         window = ev[(ev["timestamp"] >= lo) & (ev["timestamp"] <= hi)]
         outcome, n, most = classify_trades(window, legs_by_event[e.event], want)
@@ -178,7 +183,7 @@ def episode_trades(episodes, trades, legs_by_event, start, end):
                      "window_s": hi - lo, "legs": legs_by_event[e.event],
                      "trades_in_direction": n, "expected": per_second * (hi - lo),
                      "most_legs_one_trader": most, "outcome": outcome})
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows), skipped
 
 
 # --- Main ---------------------------------------------------------------------
@@ -353,12 +358,25 @@ def main():
                  "clean snapshot, in the direction that would capture the violation (buying the "
                  "basket: buying YES or selling NO on a leg; selling it: the reverse). \"Expected\" "
                  "is the number such a window would contain at the event's average rate.")
-        ended = episode_trades(base_eps, trades, legs, df["tick"].min(), df["tick"].max())
-        rep.table(ended.round(2), "episode_trades")
-        counts = ended.groupby(["side", "size", "outcome"]).size().rename("episodes")
-        rep.table(counts.to_frame(), "episode_trade_outcomes")
-        rep.text(f"\nAcross all episodes: {ended['trades_in_direction'].sum()} trades in the "
-                 f"capturing direction, against {ended['expected'].sum():.1f} expected.")
+        meta_path = DATA_DIR / "trades_meta.json"
+        if meta_path.exists():
+            with open(meta_path) as f:
+                meta = json.load(f)
+            covered = (float(meta["start"]), float(meta["end"]))
+        else:
+            covered = (float(trades["timestamp"].min()), float(trades["timestamp"].max()))
+        rep.text(f"\nTrade data covers {pd.to_datetime(covered[0], unit='s', utc=True):%d %b %H:%M} to "
+                 f"{pd.to_datetime(covered[1], unit='s', utc=True):%d %b %H:%M} UTC; episodes outside "
+                 "that period are left out. Re-run analysis/trades.py to extend it.")
+        ended, skipped = episode_trades(base_eps, trades, legs, *covered)
+        if skipped:
+            rep.text(f"{skipped} episode(s) fall outside the trade data and are left out.")
+        if len(ended):
+            rep.table(ended.round(2), "episode_trades")
+            counts = ended.groupby(["side", "size", "outcome"]).size().rename("episodes")
+            rep.table(counts.to_frame(), "episode_trade_outcomes")
+            rep.text(f"\nAcross these episodes: {ended['trades_in_direction'].sum()} trades in the "
+                     f"capturing direction, against {ended['expected'].sum():.1f} expected.")
 
     # 5. Attention.
     rep.heading("5. Attention: events ranked by 24-hour volume at the start of collection")

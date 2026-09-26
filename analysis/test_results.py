@@ -70,3 +70,16 @@ def test_some_legs_traded():
 def test_no_trades_in_the_capturing_direction():
     w = window([("a", "m1", -1)])
     assert classify_trades(w, legs=3, want=1)[0] == "no trades in that direction"
+
+
+
+def test_episodes_outside_trade_data_are_skipped():
+    from results import episode_trades
+    episodes = pd.DataFrame({"event": ["e", "e"], "side": ["buy", "buy"], "size": [1, 1],
+                             "start": [100.0, 900.0], "end": [104.0, 904.0],
+                             "next_clean": [106.0, 906.0]})
+    trades = pd.DataFrame({"event": ["e"], "timestamp": [102], "proxyWallet": ["a"],
+                           "conditionId": ["m1"], "direction": [1]})
+    rows, skipped = episode_trades(episodes, trades, {"e": 1}, 0.0, 500.0)
+    assert len(rows) == 1 and skipped == 1
+    assert rows.loc[0, "outcome"] == "one trader took every leg"

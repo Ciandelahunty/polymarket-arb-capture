@@ -140,6 +140,8 @@ def main():
     trades = pd.concat(frames, ignore_index=True).drop_duplicates()
     trades = trades.sort_values("timestamp").reset_index(drop=True)
     trades.to_parquet(DATA_DIR / "trades.parquet", index=False)
+    with open(DATA_DIR / "trades_meta.json", "w") as f:
+        json.dump({"start": start, "end": end}, f)
     print(f"Saved {len(trades):,} trades to {DATA_DIR / 'trades.parquet'}")
 
 
