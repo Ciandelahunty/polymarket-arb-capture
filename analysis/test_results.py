@@ -53,13 +53,26 @@ def test_trade_direction():
     assert list(trade_direction(side, is_yes)) == [1, -1, -1, 1]
 
 
-def window(rows):
-    return pd.DataFrame(rows, columns=["proxyWallet", "conditionId", "direction"])
+def window(rows, times=None):
+    df = pd.DataFrame(rows, columns=["proxyWallet", "conditionId", "direction"])
+    df["timestamp"] = times if times is not None else [0] * len(df)
+    return df
 
 
 def test_one_trader_taking_every_leg():
     w = window([("a", "m1", 1), ("a", "m2", 1), ("a", "m3", 1), ("b", "m1", -1)])
-    assert classify_trades(w, legs=3, want=1) == ("one trader took every leg", 3, 3)
+    assert classify_trades(w, legs=3, want=1) == ("basket taken by one trader", 3, 3)
+
+
+def test_every_leg_spread_over_hours_is_not_a_basket():
+    w = window([("a", "m1", 1), ("a", "m2", 1), ("a", "m3", 1)], times=[0, 3600, 7200])
+    assert classify_trades(w, legs=3, want=1)[0] == "every leg traded, but spread out"
+
+
+def test_basket_found_inside_a_longer_run_of_trades():
+    w = window([("a", "m1", 1), ("a", "m1", 1), ("a", "m2", 1), ("a", "m3", 1)],
+               times=[0, 5000, 5010, 5030])
+    assert classify_trades(w, legs=3, want=1)[0] == "basket taken by one trader"
 
 
 def test_some_legs_traded():
@@ -82,4 +95,4 @@ def test_episodes_outside_trade_data_are_skipped():
                            "conditionId": ["m1"], "direction": [1]})
     rows, skipped = episode_trades(episodes, trades, {"e": 1}, 0.0, 500.0)
     assert len(rows) == 1 and skipped == 1
-    assert rows.loc[0, "outcome"] == "one trader took every leg"
+    assert rows.loc[0, "outcome"] == "basket taken by one trader"

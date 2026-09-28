@@ -143,12 +143,35 @@ def trade_direction(side, is_yes):
     return ((side == "BUY") == is_yes).astype(int) * 2 - 1
 
 
+BASKET_WINDOW_S = 60   # all legs bought by one trader within this long counts as a basket
+
+
+def all_legs_within(trades, legs, seconds=BASKET_WINDOW_S):
+    """True if these trades (one trader's) cover `legs` distinct markets within
+    some stretch of `seconds` or less."""
+    t = trades.sort_values("timestamp")
+    ts, cond = t["timestamp"].to_numpy(), t["conditionId"].to_numpy()
+    counts, lo = {}, 0
+    for hi in range(len(t)):
+        counts[cond[hi]] = counts.get(cond[hi], 0) + 1
+        while ts[hi] - ts[lo] > seconds:
+            counts[cond[lo]] -= 1
+            if counts[cond[lo]] == 0:
+                del counts[cond[lo]]
+            lo += 1
+        if len(counts) >= legs:
+            return True
+    return False
+
+
 def classify_trades(window, legs, want):
     """How an episode ended, from the trades in its window.
 
     `window` holds the event's trades from just before the episode until just
     after it closed; `legs` is the number of outcomes; `want` is +1 for a
-    buy-side episode and -1 for a sell-side one.
+    buy-side episode and -1 for a sell-side one. "Basket taken" requires one
+    trader to trade every leg within BASKET_WINDOW_S seconds; in long episodes,
+    a trader can touch every leg over hours for unrelated reasons.
     """
     right = window[window["direction"] == want]
     if len(right) == 0:
@@ -156,7 +179,10 @@ def classify_trades(window, legs, want):
     legs_per_trader = right.groupby("proxyWallet")["conditionId"].nunique()
     most = int(legs_per_trader.max())
     if most >= legs:
-        return "one trader took every leg", len(right), most
+        for _, t in right.groupby("proxyWallet"):
+            if t["conditionId"].nunique() >= legs and all_legs_within(t, legs):
+                return "basket taken by one trader", len(right), most
+        return "every leg traded, but spread out", len(right), most
     return "some legs traded", len(right), most
 
 
@@ -372,7 +398,11 @@ def main():
         if skipped:
             rep.text(f"{skipped} episode(s) fall outside the trade data and are left out.")
         if len(ended):
-            rep.table(ended.round(2), "episode_trades")
+            ended.to_csv(RESULTS_DIR / "episode_trades.csv", index=False)
+            active = ended[ended["trades_in_direction"] > 0]
+            rep.text(f"Episodes with trades in the capturing direction ({len(active)} of {len(ended)}; "
+                     "the full list is in episode_trades.csv):")
+            rep.table(active.round(2) if len(active) else pd.DataFrame({"episodes": [0]}))
             counts = ended.groupby(["side", "size", "outcome"]).size().rename("episodes")
             rep.table(counts.to_frame(), "episode_trade_outcomes")
             rep.text(f"\nAcross these episodes: {ended['trades_in_direction'].sum()} trades in the "

@@ -87,3 +87,6 @@ Polymarket pays a holding reward of 3.25% a year on positions in selected market
 
 6. **How episodes ended (added 24 Sept, after seeing the first results).**
  Trades for every market in the sample are downloaded from Polymarket's public trades endpoint for the collection period. For each episode, the event's trades are examined from 2 seconds before its start to 2 seconds after its first clean snapshot, in the direction that would capture the violation: for the buy side, buying YES or selling NO on a leg; for the sell side, the reverse. Each episode is classed as "one trader took every leg", "some legs traded" or "no trades in that direction". The count is compared with the number expected in a window of the same length at the event's average rate.
+
+ 7. **Basket capture requires all legs within 60 seconds**
+(28 Sept, after seeing the trade results). Some episodes lasted many hours, and in those one trader could trade every leg for unrelated reasons. An episode now counts as "basket taken by one trader" only if one trader traded every leg within 60 seconds.
