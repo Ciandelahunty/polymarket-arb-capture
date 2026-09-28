@@ -61,6 +61,7 @@ Written and committed before any gaps were computed from the collected data. Any
 - **Discount rate.** Taken from the US Treasury's published daily bill rates for 22 Sept 2026, coupon-equivalent basis.
 - **End dates (24 Sept).** Checked against the resolution rules for four events with violations as of the 24th - Maduro's Prison Time, the Bank of Korea Decision, Chinese Inflation and the Fed Rate. All are at or after the expected resolution recorded in universe.json, so the time to resolution is, if anything, overstated, and buy-side violations understated.
 - **No stale responses (24 Sept).** Checked with inspect_event.py across the two busiest violation periods: no book timestamp went backwards in 3,150 Maduro snapshots (11:00–12:45 UTC) or 8,698 China inflation snapshots (08:00–12:50 UTC). Maduro's 175 single-snapshot episodes come from one 10-share ask on "No prison time" repriced between 70¢ and 68¢ every 10 seconds.
+- **China inflation exhaustiveness (28 Sept)**. Buckets cover every one-decimal value except exactly −1.0% ("<−1.0%" and "−0.9 to −0.5%" leave it out), and 2.0% appears in two buckets. The rules don't address either boundary. The probability of exactly −1.0% is small, so the effect on China's bound is under 1¢, but the event is not strictly exhaustive.
 
 ## Deviations
 
