@@ -91,3 +91,6 @@ Polymarket pays a holding reward of 3.25% a year on positions in selected market
 
  7. **Basket capture requires all legs within 60 seconds**
 (28 Sept, after seeing the trade results). Some episodes lasted many hours, and in those one trader could trade every leg for unrelated reasons. An episode now counts as "basket taken by one trader" only if one trader traded every leg within 60 seconds.
+
+8. **Horizon-matched discount rate (robustness check, added 28 Sept after seeing the interim results).** 
+Each snapshot is also discounted at the US Treasury bill yield for its event's time to resolution, from the 22 Sept 2026 curve (coupon equivalent): 3.88% at 4 weeks up to 4.40% at 52 weeks, interpolated linearly and held flat beyond those maturities. The baseline remains 4.11% for all events.

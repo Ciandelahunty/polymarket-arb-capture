@@ -16,7 +16,8 @@ import numpy as np
 import pandas as pd
 
 from costs import OK
-from episodes import N, U, V, classify, episodes_for, gap_values, needed_columns
+from episodes import (N, U, V, classify, episodes_for, gap_values, matched_rate,
+                      needed_columns)
 from load import load_processed
 from settings import (DATA_DIR, MAX_STEP_S, OUTPUT_DIR, R_BASE, R_SENSITIVITY, SIZES,
                       STALENESS_CUTOFF_S, UNIVERSE)
@@ -238,6 +239,18 @@ def main():
         row["episodes_1"] = len(episodes_for(df, "buy", 1, r=r))
         sens.append(row)
 
+    # Horizon-matched: each snapshot discounted at the Treasury yield for its
+    # time to resolution.
+    r_matched = matched_rate(df["t_years"])
+    matched = {"rate": "horizon-matched"}
+    for q in SIZES:
+        g = gap_values(df, "buy", q, r_matched).where(df["t_years"] > 0)
+        matched[f"median_gap_{q}"] = g.median() * 100
+        matched[f"violations_{q}"] = int((g < 0).sum())
+    matched["episodes_1"] = len(episodes_for(df, "buy", 1, r=r_matched))
+    matched_by_event = (pd.DataFrame({"event": df["event"], "rate": r_matched})
+                        .groupby("event", observed=True)["rate"].median())
+
     # Episodes at the baseline rate, with and without the staleness filter.
     episodes = pd.concat(
         [episodes_for(df, side, q, staleness_cutoff=cut).assign(staleness_filter=cut is not None)
@@ -458,6 +471,12 @@ def main():
     # Robustness.
     rep.heading("Robustness: discount rate (buy side)")
     rep.table(pd.DataFrame(sens).set_index("r").round(3), "rate_sensitivity")
+    rep.text("\nHorizon-matched: each snapshot discounted at the 22 Sept Treasury yield for its "
+             "time to resolution (interpolated; flat beyond 4 and 52 weeks), less any holding reward.")
+    rep.table(pd.DataFrame([matched]).set_index("rate").round(3), "rate_matched")
+    shown_m = (matched_by_event * 100).round(2).rename("median rate %").to_frame()
+    shown_m.index = [s[:55] for s in shown_m.index]
+    rep.table(shown_m.sort_values("median rate %"), "rate_matched_by_event")
     rep.text("\nThe staleness filter appears in the frequency, survival and capture tables above.")
 
     rep.save()

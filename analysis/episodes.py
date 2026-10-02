@@ -27,7 +27,7 @@ import pandas as pd
 from costs import OK
 from load import load_processed
 from settings import (HOLDING_REWARD_EVENTS, HOLDING_REWARD_RATE, MAX_STEP_S,
-                      OUTPUT_DIR, R_BASE, SIZES, STALENESS_CUTOFF_S)
+                      OUTPUT_DIR, R_BASE, SIZES, STALENESS_CUTOFF_S, TREASURY_CURVE)
 
 N, V, U = 0, 1, 2
 
@@ -36,9 +36,18 @@ EPISODE_COLUMNS = ["event", "side", "size", "start", "end", "prev_clean", "next_
                    "right_censored", "interrupted", "min_gap"]
 
 
+def matched_rate(t_years, curve=TREASURY_CURVE):
+    """Treasury yield for each row's time to resolution, interpolated linearly
+    along the curve and held flat beyond its ends."""
+    ts, ys = zip(*curve)
+    return pd.Series(np.interp(np.asarray(t_years, dtype=float), ts, ys),
+                     index=getattr(t_years, "index", None))
+
+
 def buy_discount_rate(events, r=R_BASE):
-    """Discount rate for each row: r, less the holding reward for events that
-    earn one (holding the basket until resolution earns the reward)."""
+    """Discount rate for each row: r (a single rate, or one per row), less the
+    holding reward for events that earn one (holding the basket until
+    resolution earns the reward)."""
     reward = np.where(events.isin(HOLDING_REWARD_EVENTS), HOLDING_REWARD_RATE, 0.0)
     return r - pd.Series(reward, index=events.index)
 

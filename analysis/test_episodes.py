@@ -148,3 +148,21 @@ def test_clean_snapshots_either_side_are_recorded():
     assert (ep["prev_clean"], ep["next_clean"]) == (0, 6)
     (ep,) = run([V, V, N])
     assert math.isnan(ep["prev_clean"]) and ep["next_clean"] == 4
+
+
+
+def test_matched_rate_interpolates_and_holds_flat():
+    from episodes import matched_rate
+    curve = ((0.25, 0.04), (1.0, 0.05))
+    r = matched_rate(pd.Series([0.1, 0.25, 0.625, 1.0, 2.0]), curve)
+    assert list(r.round(6)) == [0.04, 0.04, 0.045, 0.05, 0.05]
+
+
+def test_buy_gap_with_a_rate_per_row():
+    df = pd.DataFrame({"tick": [0.0, 2.0], "event": "e", "t_years": [1.0, 1.0],
+                       "window_s": 0.1, "buy_status_1": "ok",
+                       "buy_price_1": [0.955, 0.955], "buy_fees_1": 0.0})
+    from episodes import gap_values
+    g = gap_values(df, "buy", 1, pd.Series([0.04, 0.05]))
+    assert g.iloc[0] == pytest.approx(0.955 - 1 / 1.04)
+    assert g.iloc[1] == pytest.approx(0.955 - 1 / 1.05)
