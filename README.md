@@ -1,8 +1,8 @@
-# Polymarket arbitrage: visible versus capturable
+# Polymarket Arbitrage Analysis: Visible vs Capturable
 
-**How much of the arbitrage visible on Polymarket can actually be captured?**
+In the most liquid established markets, high-frequency trading firms keep related prices consistent with each other, so obvious mispricings last milliseconds. Prediction markets such as Polymarket are younger and much smaller, and it is less clear who does that job there. Polymarket's CEO, Shayne Coplan, has called it a "Global Truth Machine"(https://www.economist.com/graphic-detail/2026/09/10/where-prediction-markets-struggle)" and its prices are increasingly read as forecasts of elections, inflation and central bank decisions. This project tests the most basic consistency rule: in an event where exactly one outcome wins, the prices of all outcomes should sum to about $1. Earlier studies (see 'Related Work') count how often this rule breaks at the best quoted prices. This project asks whether anyone could actually profit from the breaks after fees, order book depth and reaction time, and who, if anyone, trades against them.
 
-A bot that records every outcome's order book in 20 multi-outcome Polymarket events every 2 seconds, finds moments where the prices break a no-arbitrage rule, and measures how many of those moments a trader could really have profited from after fees, order book depth and reaction time.
+To answer this, a bot records the full order book of every outcome in 20 Polymarket events every 2 seconds, and a pricing pipeline works out what each basket would really have cost to trade at 1, 100 and 500 baskets. 
 
 > **Status: collecting data.** The results below are **interim**, from 465,744 snapshots over 10.8 days (22 Sept – 3 Oct 2026). Final results will replace them when collection ends.
 
