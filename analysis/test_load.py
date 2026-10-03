@@ -63,3 +63,32 @@ def test_markets_with_fees_disabled_are_fee_free(tmp_path):
     (event,) = load_universe(p)
     assert event["rates"] == [0.0, 0.0]
     assert event["rate_sources"][0] == "feesEnabled=false"
+
+
+def test_closed_legs_attach_to_events(tmp_path):
+    universe = {"events": [{
+        "slug": "e", "end_date": "2026-11-03T12:00:00Z", "fees": {},
+        "markets": [
+            {"label": "A", "yes_token": "1", "closed": False, "fees": {"feeSchedule": {"rate": 0.04}}},
+            {"label": "B", "yes_token": "2", "closed": False, "fees": {"feeSchedule": {"rate": 0.04}}},
+            {"label": "C", "yes_token": "3", "closed": False, "fees": {"feeSchedule": {"rate": 0.04}}},
+        ],
+    }]}
+    closed = {"3": {"event": "e", "label": "C", "closed_ts": 1000.0, "resolved": "No"},
+              "2": {"event": "e", "label": "B", "closed_ts": 5000.0, "resolved": "Yes"}}
+    up, cp = tmp_path / "u.json", tmp_path / "c.json"
+    up.write_text(json.dumps(universe))
+    cp.write_text(json.dumps(closed))
+    (ev,) = load_universe(up, cp)
+    assert ev["close_ts"] == [None, None, 1000.0]   # only legs closed as No are dropped
+    assert ev["end_ts"] == 5000.0                   # a leg closed as Yes ends the event
+
+
+def test_no_closed_file_means_no_closed_legs(tmp_path):
+    universe = {"events": [{"slug": "e", "end_date": "2026-11-03T12:00:00Z", "fees": {},
+                            "markets": [{"label": "A", "yes_token": "1", "closed": False,
+                                         "fees": {"feeSchedule": {"rate": 0.04}}}]}]}
+    up = tmp_path / "u.json"
+    up.write_text(json.dumps(universe))
+    (ev,) = load_universe(up, tmp_path / "missing.json")
+    assert ev["close_ts"] == [None]

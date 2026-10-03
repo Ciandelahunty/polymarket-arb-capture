@@ -1,19 +1,21 @@
 """Look at one event's raw order books over a short period.
 
-For each snapshot, prints the basket's buy-side gap at size 1 and each leg's
-best ask (price x shares) with the age of its book. Polymarket's book timestamp
+For each snapshot, prints the basket's gap at size 1 and, for each leg, the
+best price on that side (price x shares) with the age of its book. Buy side
+(default) shows asks; --side sell shows bids. Polymarket's book timestamp
 records when the book last changed, so it should never go backwards. A leg whose
 timestamp is earlier than in the previous snapshot is marked "!": that response
 was an older copy of the book than one already received.
 
 Run from the repository folder, with times in UTC:
     python analysis/inspect_event.py maduro-prison-time-527 "2026-09-24 11:57:50" "2026-09-24 11:58:40"
+    python analysis/inspect_event.py <slug> "<start>" "<end>" --side sell
 """
 import sys
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 
-from costs import OK, basket, discount_factor, years_between
+from costs import OK, basket, discount_factor, sell_gap, years_between
 from load import iter_snapshots, load_universe, server_seconds
 from settings import DATA_DIR, HOLDING_REWARD_EVENTS, HOLDING_REWARD_RATE, R_BASE
 
@@ -35,16 +37,25 @@ def snapshots_between(start, end):
 
 
 def main():
-    if len(sys.argv) != 4:
+    args = sys.argv[1:]
+    side = "buy"
+    if "--side" in args:
+        i = args.index("--side")
+        side = args[i + 1]
+        del args[i:i + 2]
+    if len(args) != 3 or side not in ("buy", "sell"):
         raise SystemExit(__doc__)
-    slug, start, end = sys.argv[1], parse(sys.argv[2]), parse(sys.argv[3])
+    slug, start, end = args[0], parse(args[1]), parse(args[2])
+    key = "asks" if side == "buy" else "bids"
     event = next((e for e in load_universe() if e["slug"] == slug), None)
     if event is None:
         raise SystemExit(f"{slug} is not in universe.json")
     r = R_BASE - (HOLDING_REWARD_RATE if slug in HOLDING_REWARD_EVENTS else 0.0)
 
     print("Legs:", ", ".join(f"{i + 1}={label}" for i, label in enumerate(event["labels"])))
-    print("Each leg: best ask x shares (seconds since its book last changed); ! = older than the previous snapshot\n")
+    label = "best ask" if side == "buy" else "best bid"
+    print(f"{side.capitalize()} side. Each leg: {label} x shares (seconds since its book last changed); "
+          "! = older than the previous snapshot\n")
     last_ts, went_back, count = {}, Counter(), 0
     for snap in sorted(snapshots_between(start, end), key=lambda s: s["tick"]):
         books = {}
@@ -52,9 +63,14 @@ def main():
             for b in req.get("books", []):
                 books[b["token"]] = (b, req["received"])
         legs = [books.get(t) for t in event["tokens"]]
-        status, price, fees = basket([x[0] if x else None for x in legs], event["rates"], 1, "buy")
-        par = discount_factor(r, years_between(snap["tick"], event["end_ts"]))
-        gap = f"{(price + fees - par) * 100:+6.2f}c" if status == OK else f"{status:>7}"
+        status, price, fees = basket([x[0] if x else None for x in legs], event["rates"], 1, side)
+        if status != OK:
+            gap = f"{status:>7}"
+        elif side == "buy":
+            par = discount_factor(r, years_between(snap["tick"], event["end_ts"]))
+            gap = f"{(price + fees - par) * 100:+6.2f}c"
+        else:
+            gap = f"{sell_gap(price, fees) * 100:+6.2f}c"
 
         cells = []
         for i, (token, leg) in enumerate(zip(event["tokens"], legs)):
@@ -69,9 +85,10 @@ def main():
                 went_back[i + 1] += 1
             if ts is not None:
                 last_ts[token] = ts
-            ask = book["asks"][0] if book["asks"] else None
+            best = book[key][0] if book[key] else None
             age = f"{received - ts:.0f}s" if ts is not None else "?"
-            cells.append(f"{i + 1}: {ask[0]:.3f}x{ask[1]:.0f} ({age}){flag}" if ask else f"{i + 1}: no ask{flag}")
+            cells.append(f"{i + 1}: {best[0]:.3f}x{best[1]:.0f} ({age}){flag}" if best
+                         else f"{i + 1}: no {key[:-1]}{flag}")
         count += 1
         when = datetime.fromtimestamp(snap["tick"], tz=timezone.utc)
         print(f"{when:%H:%M:%S}  gap {gap}  | " + " | ".join(cells))

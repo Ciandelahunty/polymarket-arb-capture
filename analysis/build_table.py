@@ -30,7 +30,13 @@ def rows_for_snapshot(snap, events):
 
     rows = []
     for ev in events:
-        found = [by_token.get(t) for t in ev["tokens"]]
+        # Legs that closed as No are worth nothing with certainty, so the basket
+        # of the remaining legs still pays $1: leave them out from closing time.
+        close_ts = ev.get("close_ts") or [None] * len(ev["tokens"])
+        live = [i for i, c in enumerate(close_ts) if c is None or tick < c]
+        tokens = [ev["tokens"][i] for i in live]
+        rates = [ev["rates"][i] for i in live]
+        found = [by_token.get(t) for t in tokens]
         books = [x[0] if x else None for x in found]
         present = [x for x in found if x]
         row = {
@@ -50,7 +56,7 @@ def rows_for_snapshot(snap, events):
                 row["age_min_s"], row["age_max_s"] = min(ages), max(ages)
         for q in SIZES:
             for side in ("buy", "sell"):
-                status, price, fees = basket(books, ev["rates"], q, side)
+                status, price, fees = basket(books, rates, q, side)
                 row[f"{side}_status_{q}"] = status
                 row[f"{side}_price_{q}"] = price
                 row[f"{side}_fees_{q}"] = fees

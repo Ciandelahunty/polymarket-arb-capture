@@ -41,3 +41,26 @@ def test_row_with_a_missing_leg():
     assert row["buy_status_1"] == "missing" and row["sell_status_1"] == "missing"
     assert row["buy_price_1"] is None
     assert row["age_min_s"] is None
+
+
+# --- Closed legs -----------------------------------------------------------
+
+THREE = {"slug": "e", "end_ts": TICK + YEAR, "tokens": ["a", "b", "c"],
+         "rates": [0.0, 0.0, 0.0], "close_ts": [None, None, TICK - 60]}
+
+
+def test_leg_closed_as_no_is_left_out_after_closing():
+    books = [{"token": "a", "server_ts": None, "bids": [[0.55, 1000]], "asks": [[0.60, 1000]]},
+             {"token": "b", "server_ts": None, "bids": [[0.35, 1000]], "asks": [[0.42, 1000]]}]
+    (row,) = rows_for_snapshot(snapshot(books), [THREE])   # leg c closed a minute earlier, no book
+    assert row["n_legs"] == 2 and row["n_present"] == 2
+    assert row["buy_status_1"] == "ok"
+    assert row["buy_price_1"] == pytest.approx(1.02)
+
+
+def test_leg_is_still_required_before_it_closes():
+    ev = dict(THREE, close_ts=[None, None, TICK + 60])     # closes a minute later
+    books = [{"token": "a", "server_ts": None, "bids": [[0.55, 1000]], "asks": [[0.60, 1000]]},
+             {"token": "b", "server_ts": None, "bids": [[0.35, 1000]], "asks": [[0.42, 1000]]}]
+    (row,) = rows_for_snapshot(snapshot(books), [ev])
+    assert row["n_legs"] == 3 and row["buy_status_1"] == "missing"

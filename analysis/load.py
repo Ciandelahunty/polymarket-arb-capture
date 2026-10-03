@@ -5,7 +5,7 @@ from datetime import datetime
 
 import pandas as pd
 
-from settings import PROCESSED_DIR, UNIVERSE
+from settings import PROCESSED_DIR, ROOT, UNIVERSE
 
 GZIP_MAGIC = b"\x1f\x8b\x08"
 _BLOCK = 1 << 16
@@ -111,11 +111,26 @@ def fees_disabled(fees):
     return isinstance(fees, dict) and fees.get("feesEnabled") is False
 
 
-def load_universe(path=UNIVERSE):
-    """Return one dict per event: slug, end time, and the YES token and fee
-    rate of each open leg, in the same order the collector uses."""
+CLOSED_LEGS = ROOT / "closed_legs.json"
+
+
+def load_closed(path=CLOSED_LEGS):
+    """Markets that closed during collection, from analysis/closed_legs.py."""
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
+
+
+def load_universe(path=UNIVERSE, closed_path=CLOSED_LEGS):
+    """Return one dict per event: slug, end time, and the YES token, fee rate
+    and closing time (None if still open) of each leg open at the start, in the
+    same order the collector uses. A leg that closed as Yes decides the event,
+    so the event's end time is brought forward to that moment."""
     with open(path) as f:
         u = json.load(f)
+    closed = load_closed(closed_path)
     events, problems = [], []
     for e in u["events"]:
         slug = e["slug"]
@@ -137,9 +152,17 @@ def load_universe(path=UNIVERSE):
             sources.append(src)
         if not e.get("end_date"):
             problems.append(f"{slug}: no end date")
+        end_ts = parse_time(e["end_date"]) if e.get("end_date") else None
+        close_ts = []
+        for m in legs:
+            c = closed.get(m["yes_token"])
+            if c and c["resolved"] == "Yes":
+                end_ts = min(end_ts, c["closed_ts"]) if end_ts else c["closed_ts"]
+            close_ts.append(c["closed_ts"] if c and c["resolved"] == "No" else None)
         events.append({
             "slug": slug,
-            "end_ts": parse_time(e["end_date"]) if e.get("end_date") else None,
+            "end_ts": end_ts,
+            "close_ts": close_ts,
             "tokens": [m["yes_token"] for m in legs],
             "labels": [m.get("label") for m in legs],
             "rates": rates,
