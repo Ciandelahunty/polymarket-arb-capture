@@ -2,25 +2,27 @@
 
 **How much of the arbitrage visible on Polymarket can actually be captured?**
 
-A bot that records every outcome's order book in 20 multi-outcome Polymarket events every 2 seconds, finds moments where the prices break a no-arbitrage rule, and measures how many of those moments a trader could really have profited from after fees, order book depth and reaction time.
+In the most liquid established markets, high-frequency trading firms keep related prices consistent with each other, so obvious mispricings last milliseconds. Prediction markets such as Polymarket are younger and much smaller, and it is less clear who does that job there. Polymarket's CEO, Shayne Coplan, has called it a "global truth machine" ([The Economist, 10 Sept 2026](https://www.economist.com/graphic-detail/2026/09/10/where-prediction-markets-struggle)), and its prices are increasingly read as forecasts of elections, inflation and central bank decisions. A forecast built on prices that don't add up is hard to trust. This project tests the most basic consistency rule: in an event where exactly one outcome wins, the prices of all outcomes should sum to about $1. Earlier studies count how often this rule breaks at the best quoted prices. This one asks whether anyone could actually profit from the breaks after fees, order book depth and reaction time, and who, if anyone, trades against them.
 
-> **Status: collecting data.** The results below are **interim**, from 465,744 snapshots over 10.8 days (22 Sept – 3 Oct 2026). Final results will replace them when collection ends.
+To answer this, a bot records the full order book of every outcome in 20 Polymarket events every 2 seconds, and a pricing pipeline works out what each basket would really have cost to trade at 1, 100 and 500 baskets.
 
-## Interim findings
+> **Collection ended on 7 Oct 2026 at 12:50 UTC.** The results below are from 637,760 snapshots over 14.8 days (22 Sept – 7 Oct 2026).
+
+## Findings
 
 | | |
 | --- | --- |
-| Snapshots in which the buy-side bound was violated, at the best prices | **1.6%** |
-| Violation episodes that survived at 100 baskets | **0.7%** (10 of 1,352) |
-| Violation episodes that survived at 500 baskets | **0.07%** (1 of 1,352) |
+| Event-snapshots in which the buy-side bound was violated, at the best prices | **1.2%** |
+| Violation episodes that survived at 100 baskets | **0.8%** (11 of 1,387) |
+| Violation episodes that survived at 500 baskets | **0.07%** (1 of 1,387) |
 | Sell-side violations | **2 episodes** of a few seconds each, at most 5 baskets |
-| Profit of a paper-trading bot reacting 2 seconds late | **$10.75** |
+| Profit of a paper-trading bot reacting 2 seconds late | **$12.22** |
 
-1. **The no-arbitrage bound almost always holds, by a wide margin.** Buying one basket at the best available prices typically costs 12.6¢ more than its fair value; selling one typically raises 9.9¢ less than $1. The margin is the combined bid–ask spread across every outcome, plus fees, and it grows quickly with size.
-2. **Violations are common at the best prices but rarely survive a realistic trade.** Buy-side violations appeared in 1.6% of snapshots, in 1,352 separate episodes lasting a median of 2–6 seconds. Only 10 ever reached a violation at 100 baskets, and 1 at 500.
-3. **The sell-side bound was broken only once,** across 9.3 million event-snapshots. Selling the basket can be turned into cash immediately, so it is the easiest direction to arbitrage and was predicted to be policed hardest. The one break came when a program placed 5-share bids at 2¢ on every bucket of a 46-outcome market, so that the bids added up to more than $1; a trader sold into them within seconds.
-4. **Most violations disappear without anyone trading.** 1,328 of 1,352 buy-side episodes ended with no trades in the direction that would capture them; the quotes simply moved. In 16 episodes a single trader bought every outcome within 60 seconds, capturing the basket.
-5. **The longest violations are too small to be worth tying money up for.** They occur mainly in a market that resolves in about 15 months. Its basket usually prices at an implied return of about 1.5–3.5% a year, below the 4.11% Treasury bill rate, and for stretches it priced a little above it. Those stretches are the long violations: at a 5.11% discount rate, violations at 500 baskets fall from 544 snapshots to 20, and traders traded these episodes *less* than usual, not more.
+1. **The no-arbitrage bound almost always holds, by a wide margin.** Buying one basket at the best available prices typically costs 12.8¢ more than its fair value; selling one typically raises 10.4¢ less than $1. The margin is the combined bid–ask spread across every outcome, plus fees, and it grows quickly with size: at 500 baskets the typical buy-side margin is 60¢.
+2. **Violations are common at the best prices but rarely survive a realistic trade.** Buy-side violations appeared in 1.2% of event-snapshots, in 1,387 separate episodes lasting a median of 2–6 seconds. Only 11 ever reached a violation at 100 baskets, and 1 at 500.
+3. **The sell-side bound was broken only once,** across 12.8 million event-snapshots. Selling the basket can be turned into cash immediately, so it is the easiest direction to arbitrage and was predicted to be policed hardest. The one break came when a program placed 5-share bids at 2¢ on every bucket of a 46-outcome market, so that the bids added up to more than $1; a trader sold into them within seconds.
+4. **Most violations disappear without anyone trading.** 1,343 of 1,387 buy-side episodes ended with no trades in the direction that would capture them; the quotes simply moved. In 27 episodes a single trader bought every outcome within 60 seconds, capturing the basket. Across all episodes there were 870 trades in the capturing direction, against 92 expected at the events' normal trading rates: violations are rarely traded, but when they are, the trading is concentrated on them.
+5. **The longest violations are too small to be worth tying money up for.** They occur mainly in a market that resolves in about 15 months; its longest episode lasted at least 33 hours. Its basket usually prices at an implied return of about 1.5–3.5% a year, below the 4.11% Treasury bill rate, and for stretches it priced a little above it. Those stretches are the long violations: at a 5.11% discount rate, violations at 500 baskets fall from 544 event-snapshots to 20.
 
 ### Example: an arbitrage captured in two seconds
 
@@ -54,7 +56,7 @@ On 26 Sept at 12:28:32 UTC, in the *China annual inflation* market, a 20-share o
 ## Robustness checks
 
 - **Discount rate:** results at 0%, 3.11%, 4.11% and 5.11%, and with each event discounted at the Treasury yield matching its time to resolution. The main effect of horizon-matching is fewer long violations in the 15-month market (size-500 violations fall from 544 snapshots to 307); other results barely change.
-- **Staleness:** all outcomes of an event are read within a median 0.11 seconds of each other. Results are shown with and without the 0.02% of snapshots taking longer than 1 second.
+- **Staleness:** all outcomes of an event are read within a median 0.10 seconds of each other. Results are shown with and without the 0.02% of snapshots taking longer than 1 second.
 - **Data quality:** order book timestamps never ran backwards, confirming no stale responses in the periods checked.
 
 ## Limitations
@@ -89,7 +91,7 @@ analysis/
   test_*.py             66 unit tests (pytest analysis)
 ```
 
-Raw data (several GB compressed) is not included.
+Raw data (15 GB compressed) is not included.
 
 ## Running it
 
@@ -99,7 +101,7 @@ python universe.py                    # build the sample
 python collector.py                   # collect (runs until stopped)
 pytest analysis                       # run the tests
 python analysis/closed_legs.py        # record outcomes that have closed
-python analysis/build_table.py        # process new raw files
+python analysis/build_table.py        # process new raw files (--force after closed_legs.json changes)
 python analysis/trades.py             # download trades for the period
 python analysis/results.py            # results, charts and tables
 ```

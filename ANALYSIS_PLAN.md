@@ -96,3 +96,6 @@ Polymarket pays a holding reward of 3.25% a year on positions in selected market
 Each snapshot is also discounted at the US Treasury bill yield for its event's time to resolution, from the 22 Sept 2026 curve (coupon equivalent): 3.88% at 4 weeks up to 4.40% at 52 weeks, interpolated linearly and held flat beyond those maturities. The baseline remains 4.11% for all events.
 
 9. **Closed outcomes (added 2 Oct, after the interim results showed Musk baskets missing).** Some outcomes closed during collection; for example, Musk tweet-count buckets were settled as No once the count passed them. An outcome that closed as No is worth nothing with certainty, so from its closing time it is left out of its event's basket, which still pays $1. An outcome closing as Yes would decide the event, so that event's later snapshots would be treated as past its end date. Closing times and results come from Polymarket's data via analysis/closed_legs.py and are recorded in closed_legs.json.
+
+## Stop Time
+**7 Oct 2026, 12:50:09 UTC**
