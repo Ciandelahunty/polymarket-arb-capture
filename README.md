@@ -26,7 +26,7 @@ A bot records the full order book of every outcome in 20 Polymarket events every
 
 On 26 Sept at 12:28:32 UTC, in the *China annual inflation* market, a 20-share offer on the most likely outcome appeared 10¢ below the usual price, taking the basket 15.4¢ below its fair value. In the next snapshot every one of the nine outcomes had lost exactly 18 shares: someone had bought 18 complete baskets, the most the thinnest outcome's order book allowed, for roughly $2.80 of profit. The same basket had been 5.2¢ below fair value for over a minute beforehand, and nobody had taken it.
 
-## How it works
+## Methodology
 
 **The no-arbitrage rule.** In a Polymarket *negRisk* event, the outcomes are mutually exclusive, and exactly one wins. A *basket* of one YES share on every outcome therefore pays exactly $1. Two violations are possible:
 
