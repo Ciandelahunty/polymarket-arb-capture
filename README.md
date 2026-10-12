@@ -1,10 +1,8 @@
-# Polymarket Arbitrage Analysis: Visible vs Capturable
+# Arbitrage Analysis on Polymarket: Visible vs Capturable
 
-In the most liquid established markets, high-frequency trading firms keep related prices consistent with each other, so obvious mispricings last milliseconds. Prediction markets such as Polymarket are younger and much smaller, and it is less clear who does that job there. Polymarket's CEO, Shayne Coplan, has called it a "Global Truth Machine"(https://www.economist.com/graphic-detail/2026/09/10/where-prediction-markets-struggle)" and its prices are increasingly read as forecasts of elections, inflation and central bank decisions. This project tests the most basic consistency rule: in an event where exactly one outcome wins, the prices of all outcomes should sum to about $1. Earlier studies (see 'Related Work') count how often this rule breaks at the best quoted prices. This project asks whether anyone could actually profit from the breaks after fees, order book depth and reaction time, and who, if anyone, trades against them.
+In the most liquid established markets, high-frequency trading firms keep related prices consistent with each other, so obvious mispricings last milliseconds. Prediction markets such as Polymarket are younger and much smaller, and the consistency of prices is less clear. Polymarket's CEO, Shayne Coplan, has called it a "global truth machine" (The Economist, 10 Sept 2026), and its prices are increasingly read as forecasts of elections, inflation and central bank decisions. In order for these forecasts to be accurate, prices within each event must remain consistent. This project tests this consistency: in an event where exactly one outcome wins, the prices of all outcomes should sum to about $1. Earlier studies count how often this rule breaks at the best quoted prices. Here I additionally test whether anyone could actually profit from the breaks after fees, order book depth and reaction time, and who, if anyone, trades against them.
 
-In the most liquid established markets, high-frequency trading firms keep related prices consistent with each other, so obvious mispricings last milliseconds. Prediction markets such as Polymarket are younger and much smaller, and it is less clear who does that job there. Polymarket's CEO, Shayne Coplan, has called it a "global truth machine" ([The Economist, 10 Sept 2026](https://www.economist.com/graphic-detail/2026/09/10/where-prediction-markets-struggle)), and its prices are increasingly read as forecasts of elections, inflation and central bank decisions. A forecast built on prices that don't add up is hard to trust. This project tests the most basic consistency rule: in an event where exactly one outcome wins, the prices of all outcomes should sum to about $1. Earlier studies count how often this rule breaks at the best quoted prices. This one asks whether anyone could actually profit from the breaks after fees, order book depth and reaction time, and who, if anyone, trades against them.
-
-To answer this, a bot records the full order book of every outcome in 20 Polymarket events every 2 seconds, and a pricing pipeline works out what each basket would really have cost to trade at 1, 100 and 500 baskets.
+A bot records the full order book of every outcome in 20 Polymarket events every 2 seconds, and a pricing pipeline works out what each basket would have cost to trade at 1, 100 and 500 baskets.
 
 > **Collection ended on 7 Oct 2026 at 12:50 UTC.** The results below are from 637,760 snapshots over 14.8 days (22 Sept – 7 Oct 2026).
 
@@ -28,7 +26,7 @@ To answer this, a bot records the full order book of every outcome in 20 Polymar
 
 On 26 Sept at 12:28:32 UTC, in the *China annual inflation* market, a 20-share offer on the most likely outcome appeared 10¢ below the usual price, taking the basket 15.4¢ below its fair value. In the next snapshot every one of the nine outcomes had lost exactly 18 shares: someone had bought 18 complete baskets, the most the thinnest outcome's order book allowed, for roughly $2.80 of profit. The same basket had been 5.2¢ below fair value for over a minute beforehand, and nobody had taken it.
 
-## How it works
+## Methodology
 
 **The no-arbitrage rule.** In a Polymarket *negRisk* event, the outcomes are mutually exclusive, and exactly one wins. A *basket* of one YES share on every outcome therefore pays exactly $1. Two violations are possible:
 
@@ -111,5 +109,4 @@ python analysis/results.py            # results, charts and tables
 - [Executable arbitrage and market efficiency in prediction markets](https://arxiv.org/html/2608.00666) (2026): depth-aware arbitrage in Polymarket negRisk markets.
 - [Arbitrage analysis in Polymarket NBA markets](https://arxiv.org/abs/2605.00864) (2026): violations lasting a median 3.6 seconds, mostly limited to a few shares.
 - [Capital lock-up and settlement discounting in prediction markets](https://arxiv.org/pdf/2605.31431) (2026): why long-dated contracts trade below $1.
-
-This project adds a fresh measurement on political, economic and geopolitical events, both directions of the bound, trade-level evidence on how violations end, and a paper-trading test of reaction time.
+- (https://www.economist.com/graphic-detail/2026/09/10/where-prediction-markets-struggle)
