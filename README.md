@@ -14,7 +14,8 @@ A bot records the full order book of every outcome in 20 Polymarket events every
 | Violation episodes that survived at 100 baskets | **0.8%** (11 of 1,387) |
 | Violation episodes that survived at 500 baskets | **0.07%** (1 of 1,387) |
 | Sell-side violations | **2 episodes** of a few seconds each, at most 5 baskets |
-| Profit of a paper-trading bot reacting 2 seconds late | **$12.22** |
+| Return of a paper-trading bot reacting 2 seconds late, holding each basket to resolution | **3.0%** on $1,131 committed; **1.1%** above the Treasury bill rate |
+| Share of the price gaps it traded that went in fees | **52%** |
 
 1. **The no-arbitrage bound almost always holds, by a wide margin.** Buying one basket at the best available prices typically costs 12.8¢ more than its fair value; selling one typically raises 10.4¢ less than $1. The margin is the combined bid–ask spread across every outcome, plus fees, and it grows quickly with size: at 500 baskets the typical buy-side margin is 60¢.
 2. **Violations are common at the best prices but rarely survive a realistic trade.** Buy-side violations appeared in 1.2% of event-snapshots, in 1,387 separate episodes lasting a median of 2–6 seconds. Only 11 ever reached a violation at 100 baskets, and 1 at 500.
@@ -26,7 +27,7 @@ A bot records the full order book of every outcome in 20 Polymarket events every
 
 On 26 Sept at 12:28:32 UTC, in the *China annual inflation* market, a 20-share offer on the most likely outcome appeared 10¢ below the usual price, taking the basket 15.4¢ below its fair value. In the next snapshot every one of the nine outcomes had lost exactly 18 shares: someone had bought 18 complete baskets, the most the thinnest outcome's order book allowed, for roughly $2.80 of profit. The same basket had been 5.2¢ below fair value for over a minute beforehand, and nobody had taken it.
 
-## Methodology
+## How it works
 
 **The no-arbitrage rule.** In a Polymarket *negRisk* event, the outcomes are mutually exclusive, and exactly one wins. A *basket* of one YES share on every outcome therefore pays exactly $1. Two violations are possible:
 
@@ -46,7 +47,7 @@ On 26 Sept at 12:28:32 UTC, in the *China annual inflation* market, a 20-share o
 - **Gap:** distance from the bound, in cents per basket. Negative means a violation.
 - **Episode:** a run of consecutive snapshots in violation. Durations are reported as lower and upper bounds, because a violation can start or end between snapshots.
 - **Capture rate:** the share of episodes visible at 1 basket that also reach a violation at 100 or 500.
-- **Paper-trading bot:** on first seeing a violation, it trades at the next snapshot's prices, all or nothing. This measures what reacting 2 seconds late costs.
+- **Paper-trading bot:** on first seeing a violation, it trades at the next snapshot's prices, all or nothing. This measures what reacting 2 seconds late costs. Buying a basket ties up its cost (about $1 a basket) until the event resolves, so the bot's return is its profit, in today's money and above the Treasury bill rate, divided by the money it committed. Across 867 trades it committed $1,131. The baskets' $1 payouts exceeded the prices paid by $69.61; fees took $35.99, leaving $33.62 (3.0%); and the Treasury bill interest the money could have earned until each event resolved accounts for another $21.40, leaving $12.22 (1.1%) above the T-bill rate.
 - **Trade history:** public trades around each episode show whether it ended because someone traded against it or because quotes moved.
 
 **Pre-registration.** Definitions were fixed in [`ANALYSIS_PLAN.md`](ANALYSIS_PLAN.md) and committed before any results were computed. Every later change is listed there as a deviation, with its reason and whether it came after seeing results.
@@ -55,7 +56,7 @@ On 26 Sept at 12:28:32 UTC, in the *China annual inflation* market, a 20-share o
 
 - **Discount rate:** results at 0%, 3.11%, 4.11% and 5.11%, and with each event discounted at the Treasury yield matching its time to resolution. The main effect of horizon-matching is fewer long violations in the 15-month market (size-500 violations fall from 544 snapshots to 307); other results barely change.
 - **Staleness:** all outcomes of an event are read within a median 0.10 seconds of each other. Results are shown with and without the 0.02% of snapshots taking longer than 1 second.
-- **Data quality:** order book timestamps never ran backwards, confirming no stale responses in the periods checked.
+- **Data quality:** 637,760 of the 639,952 snapshots expected at one every 2 seconds were recorded (99.7%). Most of the gap (1,365 snapshots) came from two hours on 23 Sept when the collector polled every 5 seconds by mistake. Order book timestamps never ran backwards, confirming no stale responses in the periods checked.
 
 ## Limitations
 
@@ -85,7 +86,9 @@ analysis/
   trades.py             downloads public trades for the collection period
   results.py            results, robustness checks, paper-trading bot, trade history
   closed_legs.py        records outcomes that closed during collection (closed_legs.json)
+  edge_capture.py       snapshot coverage, and the bot's capital, fees and return
   inspect_event.py      one event's order books over a short period
+  linkedin_charts.py    summary images of the findings
   test_*.py             66 unit tests (pytest analysis)
 ```
 
@@ -102,6 +105,7 @@ python analysis/closed_legs.py        # record outcomes that have closed
 python analysis/build_table.py        # process new raw files (--force after closed_legs.json changes)
 python analysis/trades.py             # download trades for the period
 python analysis/results.py            # results, charts and tables
+python analysis/edge_capture.py       # coverage, and the bot's capital, fees and return
 ```
 
 ## Related work
@@ -109,4 +113,5 @@ python analysis/results.py            # results, charts and tables
 - [Executable arbitrage and market efficiency in prediction markets](https://arxiv.org/html/2608.00666) (2026): depth-aware arbitrage in Polymarket negRisk markets.
 - [Arbitrage analysis in Polymarket NBA markets](https://arxiv.org/abs/2605.00864) (2026): violations lasting a median 3.6 seconds, mostly limited to a few shares.
 - [Capital lock-up and settlement discounting in prediction markets](https://arxiv.org/pdf/2605.31431) (2026): why long-dated contracts trade below $1.
-- (https://www.economist.com/graphic-detail/2026/09/10/where-prediction-markets-struggle)
+
+This project adds a fresh measurement on political, economic and geopolitical events, both directions of the bound, trade-level evidence on how violations end, and a paper-trading test of reaction time.
