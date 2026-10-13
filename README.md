@@ -23,6 +23,15 @@ A bot records the full order book of every outcome in 20 Polymarket events every
 4. **Most violations disappear without anyone trading.** 1,343 of 1,387 buy-side episodes ended with no trades in the direction that would capture them; the quotes simply moved. In 27 episodes a single trader bought every outcome within 60 seconds, capturing the basket. Across all episodes there were 870 trades in the capturing direction, against 92 expected at the events' normal trading rates: violations are rarely traded, but when they are, the trading is concentrated on them.
 5. **The longest violations are too small to be worth tying money up for.** They occur mainly in a market that resolves in about 15 months; its longest episode lasted at least 33 hours. Its basket usually prices at an implied return of about 1.5–3.5% a year, below the 4.11% Treasury bill rate, and for stretches it priced a little above it. Those stretches are the long violations: at a 5.11% discount rate, violations at 500 baskets fall from 544 event-snapshots to 20.
 
+<p align="center">
+  <img src="figures/3b_distribution.png" width="49%" alt="Histogram of how far a basket's cost was from its $1 payout: 1.2% of snapshots were below $1, mostly by a few cents">
+  <img src="figures/2_how_episodes_ended.png" width="49%" alt="One square per cheap-basket episode: 1,343 ended with no one buying, 17 with some outcomes traded, 27 with one trader buying the whole basket">
+</p>
+<p align="center">
+  <img src="figures/4_fees.png" width="49%" alt="The paper bot's profit: $69.61 before fees and interest, minus $35.99 fees and $21.40 Treasury bill interest, leaves $12.22">
+  <img src="figures/5_interest_rates.png" width="49%" alt="Snapshots in which 500 baskets locked in a profit, by interest rate: 19,058 at 0%, 2,087 at 3.11%, 544 at 4.11%, 20 at 5.11%">
+</p>
+
 ### Example: an arbitrage captured in two seconds
 
 On 26 Sept at 12:28:32 UTC, in the *China annual inflation* market, a 20-share offer on the most likely outcome appeared 10¢ below the usual price, taking the basket 15.4¢ below its fair value. In the next snapshot every one of the nine outcomes had lost exactly 18 shares: someone had bought 18 complete baskets, the most the thinnest outcome's order book allowed, for roughly $2.80 of profit. The same basket had been 5.2¢ below fair value for over a minute beforehand, and nobody had taken it.
@@ -88,7 +97,7 @@ analysis/
   closed_legs.py        records outcomes that closed during collection (closed_legs.json)
   edge_capture.py       snapshot coverage, and the bot's capital, fees and return
   inspect_event.py      one event's order books over a short period
-  linkedin_charts.py    summary images of the findings
+  linkedin_charts.py    summary images of the findings (copies in figures/)
   test_*.py             66 unit tests (pytest analysis)
 ```
 
